@@ -50,34 +50,28 @@ SendMode Input  ; for new scripts, superior speed and reliability
 #s::
     if WinExist("ahk_class iTunes") {
         ControlSend, ahk_parent, ^{SPACE}
-	Sleep 150
-        return 
+    } else {
+        Send,{Media_Play_Pause}
     }
-
-    Send,{Media_Play_Pause}
-    Sleep 150
+    Sleep 250
     return
 
 #x::
     if WinExist("ahk_class iTunes") {
         ControlSend, ahk_parent, ^{RIGHT}
-        Sleep 150
-        return
+    } else {
+        Send,{Media_Next}
     }
-
-    Send,{Media_Next} ; Next
-    Sleep 150
+    Sleep 250
     return
 
 #z::
     if WinExist("ahk_class iTunes") {
-        ControlSend, ahk_parent, ^{LEFT}; 
-        Sleep 150
-        return
+        ControlSend, ahk_parent, ^{LEFT}
+    } else { 
+        Send,{Media_Prev}
     }
-
-    Send,{Media_Prev} ; Next
-    Sleep 150
+    Sleep 250
     return
 
 SnapToTop() {
