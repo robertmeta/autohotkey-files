@@ -17,18 +17,53 @@ SetTitleMatchMode fast ; use fast mode
 ; Rebind key for stupid Asus Key problem
 +Del::+Ins
 
+!1::
+    WinActivateBottom, ahk_class CabinetWClass
+    WinActivateBottom, Oracle VM VirtualBox
+    WinActivate, Oracle VM VirtualBox Manager
+    return
+!2::
+    WinActivate, imo
+    WinActivate, freenode
+    WinActivate, Skype™
+    return
+!3::
+    WinActivate, Google Chrome
+    return
+!4::
+    WinActivateBottom, ahk_class KiTTY
+    return
+!5::
+    return
+!6::
+    return
+!7::
+    WinActivateBottom, ahk_class SpotifyMainWindow
+    WinActivate, Pandora Internet Radio
+    return
+!8::
+    WinActivate, robert.melton@gmail.com - Gmail
+    WinActivate, inky™
+    return
+!9::
+    WinActivateBottom, ahk_class ApolloRuntimeContentWindow
+    WinActivate, Mumble -
+    return
+!0::
+    return
+
 ; Run Applications
 #n::
-    Run C:\Users\rmelton-g73\Dropbox\README.markdown
+    Run https://docs.google.com/document/d/1FI10r_ly5ERLhRYkMqazakVeF_AOtWoQgiHqEJjgbi4/edit
     return
 #v::
-    Run C:\Users\rmelton-g73\bin\VMLink
+    Run C:\Users\rmelton\bin\VMLink
     return
 #w::
-    Run C:\Users\rmelton-g73\bin\WorkLink
+    Run C:\Users\rmelton\bin\WorkLink
     return
 #t::
-    Run powershell
+    Run cmd
     return
 
 ; Spotify Control
@@ -54,5 +89,4 @@ SetTitleMatchMode fast ; use fast mode
 #o::
     WinSet, AlwaysOnTop, toggle, A
     return
-
 
