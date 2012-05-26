@@ -34,6 +34,8 @@ SetTitleMatchMode fast ; use fast mode
     WinActivateBottom, ahk_class KiTTY
     return
 !5::
+    WinActivate, TeamViewer
+    WinActivate, Computers & Contacts
     return
 !6::
     return
