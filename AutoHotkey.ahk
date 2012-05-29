@@ -17,6 +17,7 @@ SetTitleMatchMode fast ; use fast mode
 ; Rebind key for stupid Asus Key problem
 +Del::+Ins
 
+
 !1::
     WinActivateBottom, ahk_class CabinetWClass
     WinActivateBottom, Oracle VM VirtualBox
@@ -25,33 +26,35 @@ SetTitleMatchMode fast ; use fast mode
 !2::
     WinActivate, imo
     WinActivate, freenode
-    WinActivate, Skype™
     return
 !3::
     WinActivate, Google Chrome
     return
 !4::
     WinActivateBottom, ahk_class KiTTY
+    WinActivateBottom, ahk_class PuTTYConfigBox
     return
 !5::
     WinActivate, TeamViewer
     WinActivate, Computers & Contacts
+    WinActivateBottom, ahk_class TV_CClientWindowClass
     return
 !6::
     return
 !7::
-    WinActivateBottom, ahk_class SpotifyMainWindow
     WinActivate, Pandora Internet Radio
+    WinActivateBottom, ahk_class SpotifyMainWindow    
     return
 !8::
-    WinActivate, robert.melton@gmail.com - Gmail
     WinActivate, inky™
+    WinActivateBottom, robert.melton@gmail.com - Gmail    
     return
 !9::
     WinActivateBottom, ahk_class ApolloRuntimeContentWindow
     WinActivate, Mumble -
     return
 !0::
+    WinActivate, µTorrent    
     return
 
 ; Run Applications
