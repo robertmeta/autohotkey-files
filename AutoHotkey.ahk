@@ -17,10 +17,15 @@ SetTitleMatchMode fast ; use fast mode
 ; Rebind key for stupid Asus Key problem
 +Del::+Ins
 
+; Act a bit like mac
+#Space::#r
+!`::
+    WinGetClass, class, A
+    WinActivateBottom, ahk_class %class%
+    return
 
 !1::
     WinActivateBottom, ahk_class CabinetWClass
-    WinActivateBottom, Oracle VM VirtualBox
     WinActivate, Oracle VM VirtualBox Manager
     return
 !2::
@@ -46,7 +51,7 @@ SetTitleMatchMode fast ; use fast mode
     WinActivateBottom, ahk_class SpotifyMainWindow    
     return
 !8::
-    WinActivate, inky™
+    WinActivate, Inky™
     WinActivateBottom, robert.melton@gmail.com - Gmail    
     return
 !9::
