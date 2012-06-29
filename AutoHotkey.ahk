@@ -48,18 +48,18 @@ SetTitleMatchMode fast ; use fast mode
     return
 !7::
     WinActivate, Pandora Internet Radio
-    WinActivateBottom, ahk_class SpotifyMainWindow    
+    WinActivateBottom, ahk_class SpotifyMainWindow
     return
 !8::
     WinActivate, Inky™
-    WinActivateBottom, robert.melton@gmail.com - Gmail    
+    WinActivateBottom, @gmail.com - Gmail
     return
 !9::
     WinActivateBottom, ahk_class ApolloRuntimeContentWindow
     WinActivate, Mumble -
     return
 !0::
-    WinActivate, µTorrent    
+    WinActivate, µTorrent
     return
 
 ; Run Applications
