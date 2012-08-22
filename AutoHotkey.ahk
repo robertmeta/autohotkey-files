@@ -38,6 +38,7 @@ SetTitleMatchMode fast ; use fast mode
 !4::
     WinActivateBottom, ahk_class KiTTY
     WinActivateBottom, ahk_class PuTTYConfigBox
+    WinActivateBottom, Microsoft Visual Studio
     return
 !5::
     WinActivate, TeamViewer
