@@ -18,7 +18,20 @@ SetTitleMatchMode fast ; use fast mode
 +Del::+Ins
 
 ; Act a bit like mac
-#Space::#r
+; #Space::#r ; using other app for this
+
+!r::
+    WinClose, ahk_class Inky
+    Process, WaitClose, inkycore  
+    FileRemoveDir, C:\Users\rmelton\AppData\Local\Arcode\Plugin, 1
+    Run, C:\Users\rmelton\AppData\Local\Inky\inky.exe
+    sleep 2000
+    WinActivate, ahk_class Inky
+    Send asdfasdf
+    Send {Tab}
+    Send asdfasdf
+    Send {Enter}
+
 !`::
     WinGetClass, class, A
     WinActivateBottom, ahk_class %class%
@@ -37,6 +50,7 @@ SetTitleMatchMode fast ; use fast mode
     return
 !4::
     WinActivateBottom, ahk_class KiTTY
+    WinActivateBottom, ahk_class PuTTY
     WinActivateBottom, ahk_class PuTTYConfigBox
     WinActivateBottom, Microsoft Visual Studio
     return
