@@ -20,18 +20,6 @@ SetTitleMatchMode fast ; use fast mode
 ; Act a bit like mac
 ; #Space::#r ; using other app for this
 
-!r::
-    WinClose, ahk_class Inky
-    Process, WaitClose, inkycore  
-    FileRemoveDir, C:\Users\rmelton\AppData\Local\Arcode\Plugin, 1
-    Run, C:\Users\rmelton\AppData\Local\Inky\inky.exe
-    sleep 2000
-    WinActivate, ahk_class Inky
-    Send asdfasdf
-    Send {Tab}
-    Send asdfasdf
-    Send {Enter}
-
 !`::
     WinGetClass, class, A
     WinActivateBottom, ahk_class %class%
@@ -39,11 +27,10 @@ SetTitleMatchMode fast ; use fast mode
 
 !1::
     WinActivateBottom, ahk_class CabinetWClass
-    WinActivate, Oracle VM VirtualBox Manager
     return
 !2::
-    WinActivate, imo
     WinActivate, freenode
+    WinActivate, imo
     return
 !3::
     WinActivate, Google Chrome
@@ -52,7 +39,6 @@ SetTitleMatchMode fast ; use fast mode
     WinActivateBottom, ahk_class KiTTY
     WinActivateBottom, ahk_class PuTTY
     WinActivateBottom, ahk_class PuTTYConfigBox
-    WinActivateBottom, Microsoft Visual Studio
     return
 !5::
     WinActivate, TeamViewer
@@ -60,10 +46,12 @@ SetTitleMatchMode fast ; use fast mode
     WinActivateBottom, ahk_class TV_CClientWindowClass
     return
 !6::
+    WinActivateBottom, Microsoft Visual Studio
     return
 !7::
     WinActivate, Pandora Internet Radio
     WinActivateBottom, ahk_class SpotifyMainWindow
+    WinActivate, Rdio
     return
 !8::
     WinActivate, Inky™
@@ -79,7 +67,7 @@ SetTitleMatchMode fast ; use fast mode
 
 ; Run Applications
 #n::
-    Run https://docs.google.com/document/d/1FI10r_ly5ERLhRYkMqazakVeF_AOtWoQgiHqEJjgbi4/edit
+    Run evernote
     return
 #v::
     Run C:\Users\rmelton\bin\VMLink
