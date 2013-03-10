@@ -18,7 +18,7 @@ SetTitleMatchMode fast ; use fast mode
 +Del::+Ins
 
 ; Act a bit like mac
-; #Space::#r ; using other app for this
+#Space::#r ; using other app for this
 
 !`::
     WinGetClass, class, A
