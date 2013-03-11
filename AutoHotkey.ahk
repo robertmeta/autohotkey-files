@@ -25,45 +25,45 @@ SetTitleMatchMode fast ; use fast mode
     WinActivateBottom, ahk_class %class%
     return
 
-!1::
-    WinActivateBottom, ahk_class CabinetWClass
-    return
-!2::
-    WinActivate, freenode
-    WinActivate, imo
-    return
-!3::
-    WinActivateBottom, Google Chrome
-    return
-!4::
-    WinActivateBottom, ahk_class KiTTY
-    WinActivateBottom, ahk_class PuTTY
-    WinActivateBottom, ahk_class PuTTYConfigBox
-    return
-!5::
-    WinActivate, TeamViewer
-    WinActivate, Computers & Contacts
-    WinActivateBottom, ahk_class TV_CClientWindowClass
-    return
-!6::
-    WinActivateBottom, Microsoft Visual Studio
-    return
-!7::
-    WinActivate, Pandora Internet Radio
-    WinActivateBottom, ahk_class SpotifyMainWindow
-    WinActivate, Rdio
-    return
-!8::
-    WinActivate, Inky™
-    WinActivateBottom, @gmail.com - Gmail
-    return
-!9::
-    WinActivateBottom, ahk_class ApolloRuntimeContentWindow
-    WinActivate, Mumble -
-    return
-!0::
-    WinActivate, µTorrent
-    return
+;!1::
+;    WinActivate, ahk_class CabinetWClass
+;    return
+;!2::
+;    WinActivate, freenode
+;    WinActivate, imo
+;    return
+;!3::
+;    WinActivateBottom, Google Chrome
+;    return
+;!4::
+;    WinActivateBottom, ahk_class KiTTY
+;    WinActivateBottom, ahk_class PuTTY
+;    WinActivateBottom, ahk_class PuTTYConfigBox
+;    return
+;!5::
+;    WinActivate, TeamViewer
+;    WinActivate, Computers & Contacts
+;    WinActivateBottom, ahk_class TV_CClientWindowClass
+;    return
+;!6::
+;    WinActivateBottom, Microsoft Visual Studio
+;    return
+;!7::
+;    WinActivate, Pandora Internet Radio
+;    WinActivateBottom, ahk_class SpotifyMainWindow
+;    WinActivate, Rdio
+;    return
+;!8::
+;    WinActivate, Inky™
+;    WinActivateBottom, @gmail.com - Gmail
+;    return
+;!9::
+;    WinActivateBottom, ahk_class ApolloRuntimeContentWindow
+;    WinActivate, Mumble -
+;    return
+;!0::
+;    WinActivate, µTorrent
+;    return
 
 ; Run Applications
 #n::
