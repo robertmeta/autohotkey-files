@@ -33,7 +33,7 @@ SetTitleMatchMode fast ; use fast mode
     WinActivate, imo
     return
 !3::
-    WinActivate, Google Chrome
+    WinActivateBottom, Google Chrome
     return
 !4::
     WinActivateBottom, ahk_class KiTTY
