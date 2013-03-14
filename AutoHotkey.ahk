@@ -79,16 +79,24 @@ SetTitleMatchMode fast ; use fast mode
     Run cmd
     return
 
-; Rdio Control
+; Spotify Control
 #Right:: 
-    ControlSend, , +{Right}, Rdio 
-    return  
+    ControlSend, ahk_parent, ^{Right}, ahk_class SpotifyMainWindow 
+    Sleep, 500
+    WinGetTitle, now_playing, ahk_class SpotifyMainWindow 
+    StringTrimLeft, playing, now_playing, 10 
+    TrayTip, Now playing:, %playing%., 10 , 16
+    return 
 #Left:: 
-    ControlSend, , +{Left}, Rdio 
-    return  
+    ControlSend, ahk_parent, ^{Left}, ahk_class SpotifyMainWindow 
+    Sleep, 500
+    WinGetTitle, now_playing, ahk_class SpotifyMainWindow 
+    StringTrimLeft, playing, now_playing, 10 
+    TrayTip, Now playing:, %playing%., 10 , 16
+    return 
 #Down:: 
-    ControlSend, , +{Space}, Rdio 
-    return  
+    ControlSend, ahk_parent, {Space}, ahk_class SpotifyMainWindow 
+    return 
 
 ; Window Control 
 #o::
