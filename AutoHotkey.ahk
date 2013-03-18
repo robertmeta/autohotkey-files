@@ -24,6 +24,9 @@ SetTitleMatchMode fast ; use fast mode
     WinGetClass, class, A
     WinActivateBottom, ahk_class %class%
     return
+!k::
+    Run kitty
+    return
 
 ;!1::
 ;    WinActivate, ahk_class CabinetWClass
