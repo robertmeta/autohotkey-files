@@ -34,6 +34,8 @@ SetTitleMatchMode fast ; use fast mode
 !2::
     WinActivate, freenode
     WinActivate, imo
+    WinActivate, HexChat: 
+    WinActivateBottom, ahk_class TConversationForm
     return
 !3::
     WinActivateBottom, Google Chrome
