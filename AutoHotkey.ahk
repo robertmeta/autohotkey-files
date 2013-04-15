@@ -39,6 +39,7 @@ SetTitleMatchMode fast ; use fast mode
     return
 !3::
     WinActivateBottom, Google Chrome
+    WinActivateBottom, Firefox
     return
 !4::
     WinActivateBottom, ahk_class KiTTY
@@ -63,7 +64,7 @@ SetTitleMatchMode fast ; use fast mode
     WinActivateBottom, @gmail.com - Gmail
     return
 !9::
-   WinActivateBottom, ahk_class ApolloRuntimeContentWindow
+    WinActivateBottom, ahk_class ApolloRuntimeContentWindow
     WinActivate, Mumble -
     return
 !0::
