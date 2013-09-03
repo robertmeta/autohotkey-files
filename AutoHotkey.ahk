@@ -25,6 +25,13 @@ Numlock::ScrollLock ; then bind it to scrolllock for working with synergy
     WinGetClass, class, A
     WinActivateBottom, ahk_class %class%
     return
+!`:: ; emulate the mac swap, bind to alt-` because of muscle memory
+    WinGetClass, class, A
+    WinActivateBottom, ahk_class %class%
+    return
+#s::
+    Run https://docs.google.com/document/d/1pDB4IuY5kh0qLMkrBnH4M2QOEVJh3Um-H1aaRtrcDS8/edit#heading=h.17qfdupl8a05
+    return
 #k::
     Run kitty
     return
@@ -45,6 +52,7 @@ Numlock::ScrollLock ; then bind it to scrolllock for working with synergy
     WinActivateBottom, ahk_class KiTTY
     WinActivateBottom, ahk_class PuTTY
     WinActivateBottom, ahk_class PuTTYConfigBox
+    WinActivateBottom, ahk_class Vim
     return
 !5::
     WinActivateBottom, Microsoft Visual Studio
@@ -103,3 +111,16 @@ Numlock::ScrollLock ; then bind it to scrolllock for working with synergy
     WinSet, AlwaysOnTop, toggle, A
     return
 
+#IfWinActive ahk_class SunAwtFrame
+Space::
+    SendInput {Control Down}{Alt Down}{Right}{Alt Up}{Control Up}
+    return
+!Space::
+    SendInput {Control Down}{Alt Down}{Left}{Alt Up}{Control Up}
+    return
+b::
+    SendInput {Control Down}{Alt Down}s{Alt Up}{Control Up}
+    return
+v::
+    SendInput .pdf{Return}
+    return
