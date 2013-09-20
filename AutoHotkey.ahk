@@ -3,6 +3,7 @@
 ; ^ is Control
 ; ! is Alt
 ; + is Shift
+; ~ is Passthru
 
 ; Basic Settings
 #SingleInstance, Force ; Only want one copy of my hotkeys
@@ -29,12 +30,50 @@ Numlock::ScrollLock ; then bind it to scrolllock for working with synergy
     WinGetClass, class, A
     WinActivateBottom, ahk_class %class%
     return
+!x::
+    MouseClick, Left
+    return
 #s::
     Run https://docs.google.com/document/d/1pDB4IuY5kh0qLMkrBnH4M2QOEVJh3Um-H1aaRtrcDS8/edit#heading=h.17qfdupl8a05
     return
 #k::
     Run kitty
     return
+
+; Run Applications
+#n::
+    Run evernote
+    return
+#t::
+    Run cmd
+    return
+
+; Spotify Control
+#Right:: 
+    ControlSend, ahk_parent, ^{Right}, ahk_class SpotifyMainWindow 
+    Sleep, 500
+    WinGetTitle, now_playing, ahk_class SpotifyMainWindow 
+    StringTrimLeft, playing, now_playing, 10 
+    TrayTip, Now playing:, %playing%., 10 , 16
+    return 
+#Left:: 
+    ControlSend, ahk_parent, ^{Left}, ahk_class SpotifyMainWindow 
+    Sleep, 500
+    WinGetTitle, now_playing, ahk_class SpotifyMainWindow 
+    StringTrimLeft, playing, now_playing, 10 
+    TrayTip, Now playing:, %playing%., 10 , 16
+    return 
+#Down:: 
+    ControlSend, ahk_parent, {Space}, ahk_class SpotifyMainWindow 
+    return 
+
+; Window Control 
+#o::
+    WinSet, AlwaysOnTop, toggle, A
+    return
+
+#IfWinNotActive ahk_class KiTTY
+; if we are in KiTTY, we want to pass alt keys on
 !1::
     WinActivate, ahk_class CabinetWClass
     return
@@ -79,38 +118,6 @@ Numlock::ScrollLock ; then bind it to scrolllock for working with synergy
     WinActivate, µTorrent
     return
 
-; Run Applications
-#n::
-    Run evernote
-    return
-#t::
-    Run cmd
-    return
-
-; Spotify Control
-#Right:: 
-    ControlSend, ahk_parent, ^{Right}, ahk_class SpotifyMainWindow 
-    Sleep, 500
-    WinGetTitle, now_playing, ahk_class SpotifyMainWindow 
-    StringTrimLeft, playing, now_playing, 10 
-    TrayTip, Now playing:, %playing%., 10 , 16
-    return 
-#Left:: 
-    ControlSend, ahk_parent, ^{Left}, ahk_class SpotifyMainWindow 
-    Sleep, 500
-    WinGetTitle, now_playing, ahk_class SpotifyMainWindow 
-    StringTrimLeft, playing, now_playing, 10 
-    TrayTip, Now playing:, %playing%., 10 , 16
-    return 
-#Down:: 
-    ControlSend, ahk_parent, {Space}, ahk_class SpotifyMainWindow 
-    return 
-
-; Window Control 
-#o::
-    WinSet, AlwaysOnTop, toggle, A
-    return
-
 #IfWinActive ahk_class SunAwtFrame
 Space::
     SendInput {Control Down}{Alt Down}{Right}{Alt Up}{Control Up}
@@ -122,5 +129,5 @@ b::
     SendInput {Control Down}{Alt Down}s{Alt Up}{Control Up}
     return
 v::
-    SendInput .pdf{Return}
+    SendInput .pdf{Return}{Tab}
     return
