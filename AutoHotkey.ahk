@@ -71,6 +71,9 @@ Numlock::ScrollLock ; then bind it to scrolllock for working with synergy
 #o::
     WinSet, AlwaysOnTop, toggle, A
     return
+!b::
+    WinActivateBottom, Firefox
+    return
 
 #IfWinNotActive ahk_class KiTTY
 ; if we are in KiTTY, we want to pass alt keys on
@@ -103,7 +106,7 @@ Numlock::ScrollLock ; then bind it to scrolllock for working with synergy
     return
 !7::
     WinActivate, Pandora Internet Radio
-   WinActivateBottom, ahk_class SpotifyMainWindow
+    WinActivateBottom, ahk_class SpotifyMainWindow
     WinActivate, Rdio
     return
 !8::
