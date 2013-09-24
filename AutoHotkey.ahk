@@ -42,7 +42,7 @@ Numlock::ScrollLock ; then bind it to scrolllock for working with synergy
 
 ; Run Applications
 #n::
-    Run evernote
+    Run https://drive.google.com/keep/u/0/#home
     return
 #t::
     Run cmd
@@ -70,9 +70,21 @@ Numlock::ScrollLock ; then bind it to scrolllock for working with synergy
 ; Window Control 
 #o::
     WinSet, AlwaysOnTop, toggle, A
+    WinGet, currentTransparency, Transparent, A
+    if (currentTransparency = 190)
+    {
+        WinSet, Transparent, OFF, A
+    }
+    else
+    {
+        WinSet, Transparent, 190, A
+    }
     return
 !b::
     WinActivateBottom, Firefox
+    return
+!c::
+    WinActivate, HexChat: 
     return
 
 #IfWinNotActive ahk_class KiTTY
