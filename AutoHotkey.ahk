@@ -30,14 +30,8 @@ Numlock::ScrollLock ; then bind it to scrolllock for working with synergy
     WinGetClass, class, A
     WinActivateBottom, ahk_class %class%
     return
-!x::
-    MouseClick, Left
-    return
 #s::
     Run https://docs.google.com/document/d/1pDB4IuY5kh0qLMkrBnH4M2QOEVJh3Um-H1aaRtrcDS8/edit#heading=h.17qfdupl8a05
-    return
-#k::
-    Run kitty
     return
 
 ; Run Applications
@@ -80,15 +74,8 @@ Numlock::ScrollLock ; then bind it to scrolllock for working with synergy
         WinSet, Transparent, 190, A
     }
     return
-!b::
-    WinActivateBottom, Firefox
-    return
-!c::
-    WinActivate, HexChat: 
-    return
 
-#IfWinNotActive ahk_class KiTTY
-; if we are in KiTTY, we want to pass alt keys on
+; "Desktops"
 !1::
     WinActivate, ahk_class CabinetWClass
     return
@@ -133,6 +120,40 @@ Numlock::ScrollLock ; then bind it to scrolllock for working with synergy
     WinActivate, µTorrent
     return
 
+; Custom keybindings for kitty
+#IfWinActive ahk_class KiTTY
+^1::
+    SendInput {Control Down}z{Control Up}:select-window -t 1{Enter}
+    return
+^2::
+    SendInput {Control Down}z{Control Up}:select-window -t 2{Enter}
+    return
+^3::
+    SendInput {Control Down}z{Control Up}:select-window -t 3{Enter}
+    return
+^4::
+    SendInput {Control Down}z{Control Up}:select-window -t 4{Enter}
+    return
+^5::
+    SendInput {Control Down}z{Control Up}:select-window -t 5{Enter}
+    return
+^6::
+    SendInput {Control Down}z{Control Up}:select-window -t 6{Enter}
+    return
+^7::
+    SendInput {Control Down}z{Control Up}:select-window -t 7{Enter}
+    return
+^8::
+    SendInput {Control Down}z{Control Up}:select-window -t 8{Enter}
+    return
+^9::
+    SendInput {Control Down}z{Control Up}:select-window -t 9{Enter}
+    return
+^0::
+    SendInput {Control Down}z{Control Up}:select-window -t 10{Enter}
+    return
+
+; Custom keybindings for weird pdf editor thinggee
 #IfWinActive ahk_class SunAwtFrame
 Space::
     SendInput {Control Down}{Alt Down}{Right}{Alt Up}{Control Up}
