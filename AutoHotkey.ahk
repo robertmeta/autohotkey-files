@@ -64,15 +64,6 @@ Numlock::ScrollLock ; then bind it to scrolllock for working with synergy
 ; Window Control 
 #o::
     WinSet, AlwaysOnTop, toggle, A
-    WinGet, currentTransparency, Transparent, A
-    if (currentTransparency = 190)
-    {
-        WinSet, Transparent, OFF, A
-    }
-    else
-    {
-        WinSet, Transparent, 190, A
-    }
     return
 
 ; "Desktops"
@@ -167,3 +158,11 @@ b::
 v::
     SendInput .pdf{Return}{Tab}
     return
+
+; Custom keybindings for reading feedly
+#IfWinActive All - Mozilla Firefox
+o::
+    MouseClick, Middle, 925, 240 ; title
+    MouseClick, Middle, 925, 350 ; comments with 1 line title
+    MouseClick, Middle, 925, 380 ; comments with 2 line title
+    MouseClick, Left, 700, 240 ; reset
