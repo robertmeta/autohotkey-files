@@ -5,6 +5,13 @@
 ; + is Shift
 ; ~ is Passthru
 
+; Needs admin 
+if not A_IsAdmin
+{
+   Run *RunAs "%A_ScriptFullPath%"  ; Requires v1.0.92.01+
+   ExitApp
+}
+
 ; Basic Settings
 #SingleInstance, Force ; Only want one copy of my hotkeys
 #NoEnv  ; for performance and compatibility with future AutoHotkey releases.
@@ -14,11 +21,13 @@ DetectHiddenWindows, Off ; Don't need hidden windows at the moment
 SendMode Input  ; for new scripts, superior speed and reliability
 SetTitleMatchMode 2 ; can have a window match anywhere inside it
 SetTitleMatchMode fast ; use fast mode
+#InstallKeybdHook
+#UseHook
 
 ; Rebind key for stupid Asus Key problem
-+Del::+Ins
-SetNumlockState, on ; turn on numlock
-Numlock::ScrollLock ; then bind it to scrolllock for working with synergy
+;+Del::+Ins
+;SetNumlockState, on ; turn on numlock
+;Numlock::ScrollLock ; then bind it to scrolllock for working with synergy
 
 ; Act a bit like mac
 #Space::#r 
@@ -85,14 +94,15 @@ Numlock::ScrollLock ; then bind it to scrolllock for working with synergy
     WinActivateBottom, ahk_class PuTTY
     WinActivateBottom, ahk_class PuTTYConfigBox
     WinActivateBottom, ahk_class Vim
+    WinActivateBottom, Microsoft Visual Studio    
     return
 !5::
-    WinActivateBottom, Microsoft Visual Studio
+    WinActivateBottom, ahk_class TV_CClientWindowClass
     return
 !6::
     WinActivate, TeamViewer
     WinActivate, Computers & Contacts
-    WinActivateBottom, ahk_class TV_CClientWindowClass
+
     return
 !7::
     WinActivate, Pandora Internet Radio
@@ -109,6 +119,51 @@ Numlock::ScrollLock ; then bind it to scrolllock for working with synergy
     return
 !0::
     WinActivate, µTorrent
+    return
+
+; Custom keybindings for weird pdf editor thinggee
+#IfWinActive ahk_class SunAwtFrame
+Space::
+    SendInput {Control Down}{Alt Down}{Right}{Alt Up}{Control Up}
+    return
+!Space::
+    SendInput {Control Down}{Alt Down}{Left}{Alt Up}{Control Up}
+    return
+b::
+    SendInput {Control Down}{Alt Down}s{Alt Up}{Control Up}
+    return
+v::
+    SendInput .pdf{Return}{Tab}
+    return
+
+; Custom keybindings for reading feedly
+#IfWinActive All - Mozilla Firefox
+o::
+    MouseClick, Middle, 810, 200 ; title
+    MouseClick, Middle, 810, 340 ; comments with 1 line title
+    MouseClick, Middle, 810, 370 ; comments with 2 line title
+    MouseClick, Left, 650, 240 ; reset
+    return
++j::
+    SendInput {Control Down}{PgDn}{Control Up}
+    return
++k::
+    SendInput {Control Down}{PgUp}{Control Up}
+    return
+
+; Same thing for Chrome
+#IfWinActive All - Google Chrome
+o::
+    MouseClick, Middle, 750, 225 ; title
+    MouseClick, Middle, 750, 345 ; comments with 1 line title
+    MouseClick, Middle, 750, 370 ; comments with 2 line title
+    MouseClick, Left, 660, 240 ; reset
+    return
++j::
+    SendInput {Control Down}{Shift Down}{Tab}{Shift Up}{Control Up}
+    return
++k::
+    SendInput {Control Down}{Tab}{Control Up}
     return
 
 ; Custom keybindings for kitty
@@ -144,25 +199,10 @@ Numlock::ScrollLock ; then bind it to scrolllock for working with synergy
     SendInput {Control Down}z{Control Up}:select-window -t 10{Enter}
     return
 
-; Custom keybindings for weird pdf editor thinggee
-#IfWinActive ahk_class SunAwtFrame
-Space::
-    SendInput {Control Down}{Alt Down}{Right}{Alt Up}{Control Up}
+#IfWinActive PVP.net Client
+!r::
+    KeyWait LAlt, L 
+    SendInput Hey All{!} My best roles are in order: Support | Jungle | Mid | Top | ADC. Have all champs for trades. Play all regular supports as well as unconventional supports like Amumu, Annie, Naut, Ziggs.{Enter}
+    Sleep 500
+    SendInput If you want to trade, have a favorite support, think MummySupport is OP?  Just let me know.  Of course, will respect pick order.  Press {#}9 to hear this message again.{Enter}
     return
-!Space::
-    SendInput {Control Down}{Alt Down}{Left}{Alt Up}{Control Up}
-    return
-b::
-    SendInput {Control Down}{Alt Down}s{Alt Up}{Control Up}
-    return
-v::
-    SendInput .pdf{Return}{Tab}
-    return
-
-; Custom keybindings for reading feedly
-#IfWinActive All - Mozilla Firefox
-o::
-    MouseClick, Middle, 925, 240 ; title
-    MouseClick, Middle, 925, 350 ; comments with 1 line title
-    MouseClick, Middle, 925, 380 ; comments with 2 line title
-    MouseClick, Left, 700, 240 ; reset
