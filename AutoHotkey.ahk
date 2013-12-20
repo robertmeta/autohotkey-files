@@ -25,9 +25,12 @@ SetTitleMatchMode fast ; use fast mode
 #UseHook
 
 ; Rebind key for stupid Asus Key problem
-;+Del::+Ins
++Del::+Ins
 ;SetNumlockState, on ; turn on numlock
 ;Numlock::ScrollLock ; then bind it to scrolllock for working with synergy
+; Rebind key for stupid new logitech keyboard
+LWin & Tab::AltTab
+;Capslock::Ctrl
 
 ; Act a bit like mac
 #Space::#r 
@@ -80,19 +83,17 @@ SetTitleMatchMode fast ; use fast mode
     WinActivate, ahk_class CabinetWClass
     return
 !2::
-    WinActivate, freenode
-    WinActivate, imo
     WinActivate, HexChat: 
-    WinActivateBottom, ahk_class TConversationForm
+    WinActivate, HipChat -
     return
 !3::
-    WinActivateBottom, Google Chrome
-    WinActivateBottom, Firefox
+    ;WinActivateBottom, Google Chrome
+    WinActivateBottom, ahk_class MozillaWindowClass
     return
 !4::
     WinActivateBottom, ahk_class KiTTY
-    WinActivateBottom, ahk_class PuTTY
-    WinActivateBottom, ahk_class PuTTYConfigBox
+    ;WinActivateBottom, ahk_class PuTTY
+    ;WinActivateBottom, ahk_class PuTTYConfigBox
     WinActivateBottom, ahk_class Vim
     WinActivateBottom, Microsoft Visual Studio    
     return
@@ -102,7 +103,6 @@ SetTitleMatchMode fast ; use fast mode
 !6::
     WinActivate, TeamViewer
     WinActivate, Computers & Contacts
-
     return
 !7::
     WinActivate, Pandora Internet Radio
@@ -119,6 +119,7 @@ SetTitleMatchMode fast ; use fast mode
     return
 !0::
     WinActivate, µTorrent
+    WinActivate, Transmission
     return
 
 ; Custom keybindings for weird pdf editor thinggee
@@ -137,34 +138,25 @@ v::
     return
 
 ; Custom keybindings for reading feedly
-#IfWinActive All - Mozilla Firefox
-o::
-    MouseClick, Middle, 810, 200 ; title
-    MouseClick, Middle, 810, 340 ; comments with 1 line title
-    MouseClick, Middle, 810, 370 ; comments with 2 line title
-    MouseClick, Left, 650, 240 ; reset
+#IfWinActive All - Vimperator
+w::
+    MouseClick, Middle, 850, 140 ; title
+    MouseClick, Middle, 850, 280 ; comments with 1 line title
+    MouseClick, Middle, 850, 315 ; comments with 2 line title
+    MouseClick, Left, 660, 220 ; reset
     return
-+j::
-    SendInput {Control Down}{PgDn}{Control Up}
+e::
+    SendInput ij
     return
-+k::
-    SendInput {Control Down}{PgUp}{Control Up}
-    return
-
-; Same thing for Chrome
-#IfWinActive All - Google Chrome
-o::
-    MouseClick, Middle, 750, 225 ; title
-    MouseClick, Middle, 750, 345 ; comments with 1 line title
-    MouseClick, Middle, 750, 370 ; comments with 2 line title
-    MouseClick, Left, 660, 240 ; reset
-    return
-+j::
-    SendInput {Control Down}{Shift Down}{Tab}{Shift Up}{Control Up}
-    return
-+k::
-    SendInput {Control Down}{Tab}{Control Up}
-    return
+#IfWinActive YouTube - Vimperator
+w::
+    MouseClick, Left, 790, 625 ; Downloads
+    MouseClick, Left, 810, 715 ; 720p
+    Sleep 200
+    MouseClick, Left, 790, 570 ; Save  
+    Sleep 300
+    SendInput d
+    return   
 
 ; Custom keybindings for kitty
 #IfWinActive ahk_class KiTTY
