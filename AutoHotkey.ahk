@@ -121,6 +121,18 @@ LWin & Tab::AltTab
     WinActivate, µTorrent
     WinActivate, Transmission
     return
+; !h:: ; email forwarder
+;    MouseClick, Left, 920, 165 ; title
+;    Sleep 500
+;    SendInput f
+;    Sleep 500
+;    SendInput jay@lithosphere.com{Tab}
+;    Sleep 200
+;    SendInput {Tab}{Control Down}{Enter}{Control Up}
+;    Sleep 200
+;    MouseClick, Left, 702, 115 ; remove label
+;    MouseClick, Left, 702, 115 ; remove label
+;    return
 
 ; Custom keybindings for weird pdf editor thinggee
 #IfWinActive ahk_class SunAwtFrame
@@ -140,10 +152,10 @@ v::
 ; Custom keybindings for reading feedly
 #IfWinActive All - Vimperator
 w::
-    MouseClick, Middle, 850, 140 ; title
-    MouseClick, Middle, 850, 280 ; comments with 1 line title
-    MouseClick, Middle, 850, 315 ; comments with 2 line title
-    MouseClick, Left, 660, 220 ; reset
+    MouseClick, Middle, 855, 145 ; title
+    MouseClick, Middle, 855, 285 ; comments with 1 line title
+    MouseClick, Middle, 855, 320 ; comments with 2 line title
+    MouseClick, Left, 715, 225 ; reset
     return
 e::
     SendInput ij
