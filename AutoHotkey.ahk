@@ -5,13 +5,6 @@
 ; + is Shift
 ; ~ is Passthru
 
-; Needs admin 
-if not A_IsAdmin
-{
-   Run *RunAs "%A_ScriptFullPath%"  ; Requires v1.0.92.01+
-   ExitApp
-}
-
 ; Basic Settings
 #SingleInstance, Force ; Only want one copy of my hotkeys
 #NoEnv  ; for performance and compatibility with future AutoHotkey releases.
@@ -92,8 +85,8 @@ LWin & Tab::AltTab
     return
 !4::
     WinActivateBottom, ahk_class KiTTY
-    ;WinActivateBottom, ahk_class PuTTY
-    ;WinActivateBottom, ahk_class PuTTYConfigBox
+    WinActivateBottom, ahk_class PuTTY
+    WinActivateBottom, ahk_class PuTTYConfigBox
     WinActivateBottom, ahk_class Vim
     WinActivateBottom, Microsoft Visual Studio    
     return
