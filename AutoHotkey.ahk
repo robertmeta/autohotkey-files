@@ -77,7 +77,7 @@ LWin & Tab::AltTab
     return
 !2::
     WinActivate, HexChat: 
-    WinActivate, HipChat -
+    WinActivate, HipChat
     return
 !3::
     ;WinActivateBottom, Google Chrome
@@ -164,7 +164,7 @@ w::
     return   
 
 ; Custom keybindings for kitty
-#IfWinActive ahk_class KiTTY
+#IfWinActive ahk_class PuTTY
 ^1::
     SendInput {Control Down}z{Control Up}:select-window -t 1{Enter}
     return
