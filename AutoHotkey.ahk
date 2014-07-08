@@ -5,17 +5,24 @@
 ; + is Shift
 ; ~ is Passthru
 
+; Force Admin
+if not A_IsAdmin
+{
+   Run *RunAs "%A_ScriptFullPath%"  ; Requires v1.0.92.01+
+   ExitApp
+}
+
 ; Basic Settings
 #SingleInstance, Force ; Only want one copy of my hotkeys
 #NoEnv  ; for performance and compatibility with future AutoHotkey releases.
 ScriptName = Robert Meltons Basics ; obvious really
 Process, Priority,, H ; abovenormal (just slightly)
 DetectHiddenWindows, Off ; Don't need hidden windows at the moment
-SendMode Input  ; for new scripts, superior speed and reliability
+SendMode Event ; for new scripts, superior speed and reliability
 SetTitleMatchMode 2 ; can have a window match anywhere inside it
 SetTitleMatchMode fast ; use fast mode
 #InstallKeybdHook
-#UseHook
+#UseHook On
 
 ; Rebind key for stupid Asus Key problem
 +Del::+Ins
@@ -36,7 +43,7 @@ LWin & Tab::AltTab
     WinActivateBottom, ahk_class %class%
     return
 #s::
-    Run https://docs.google.com/document/d/1pDB4IuY5kh0qLMkrBnH4M2QOEVJh3Um-H1aaRtrcDS8/edit#heading=h.17qfdupl8a05
+    SendInput {Control Down}{Alt Down}n{Alt Up}{Control Up}
     return
 
 ; Run Applications
@@ -48,23 +55,9 @@ LWin & Tab::AltTab
     return
 
 ; Spotify Control
-#Right:: 
-    ControlSend, ahk_parent, ^{Right}, ahk_class SpotifyMainWindow 
-    Sleep, 500
-    WinGetTitle, now_playing, ahk_class SpotifyMainWindow 
-    StringTrimLeft, playing, now_playing, 10 
-    TrayTip, Now playing:, %playing%., 10 , 16
-    return 
-#Left:: 
-    ControlSend, ahk_parent, ^{Left}, ahk_class SpotifyMainWindow 
-    Sleep, 500
-    WinGetTitle, now_playing, ahk_class SpotifyMainWindow 
-    StringTrimLeft, playing, now_playing, 10 
-    TrayTip, Now playing:, %playing%., 10 , 16
-    return 
-#Down:: 
-    ControlSend, ahk_parent, {Space}, ahk_class SpotifyMainWindow 
-    return 
+#Left::Send   {Media_Prev}
+#Down::Send   {Media_Play_Pause}
+#Right::Send  {Media_Next}
 
 ; Window Control 
 #o::
@@ -78,9 +71,11 @@ LWin & Tab::AltTab
 !2::
     WinActivate, HexChat: 
     WinActivate, HipChat
+    WinActivate, + #
+    WinActivate, * #
     return
 !3::
-    ;WinActivateBottom, Google Chrome
+    WinActivateBottom, Google Chrome
     WinActivateBottom, ahk_class MozillaWindowClass
     return
 !4::
@@ -103,8 +98,7 @@ LWin & Tab::AltTab
     WinActivate, Rdio
     return
 !8::
-    WinActivate, Inky™
-    WinActivateBottom, @gmail.com - Gmail
+    WinActivateBottom, mail - Google Chrome
     return
 !9::
     WinActivateBottom, ahk_class ApolloRuntimeContentWindow
@@ -127,79 +121,69 @@ LWin & Tab::AltTab
 ;    MouseClick, Left, 702, 115 ; remove label
 ;    return
 
-; Custom keybindings for weird pdf editor thinggee
-#IfWinActive ahk_class SunAwtFrame
-Space::
-    SendInput {Control Down}{Alt Down}{Right}{Alt Up}{Control Up}
-    return
-!Space::
-    SendInput {Control Down}{Alt Down}{Left}{Alt Up}{Control Up}
-    return
-b::
-    SendInput {Control Down}{Alt Down}s{Alt Up}{Control Up}
-    return
-v::
-    SendInput .pdf{Return}{Tab}
+
+#IfWinActive ahk_class RiotWindowClass
+`::
+    send {w down}
+    sleep 3
+    send {w up}
+    sleep 3
+    MouseClick, Left
+    sleep 3
+    send {q down}
+    sleep 3
+    send {q up}
+    sleep 3
+    send {q down}
+    sleep 3
+    send {q up}
+    sleep 3
+    send {q down}
+    sleep 3
+    send {q up}
+    sleep 3
+    send {q down}
+    sleep 3
+    send {q up}
+    sleep 3
+    send {q down}
+    sleep 3
+    send {q up}
+    sleep 3
+    send {q down}
+    sleep 3
+    send {q up}
     return
 
-; Custom keybindings for reading feedly
-#IfWinActive All - Vimperator
-w::
-    MouseClick, Middle, 855, 145 ; title
-    MouseClick, Middle, 855, 285 ; comments with 1 line title
-    MouseClick, Middle, 855, 320 ; comments with 2 line title
-    MouseClick, Left, 715, 225 ; reset
-    return
-e::
-    SendInput ij
-    return
-#IfWinActive YouTube - Vimperator
-w::
-    MouseClick, Left, 790, 625 ; Downloads
-    MouseClick, Left, 810, 715 ; 720p
-    Sleep 200
-    MouseClick, Left, 790, 570 ; Save  
-    Sleep 300
-    SendInput d
-    return   
-
-; Custom keybindings for kitty
+; Custom keybindings for putty
 #IfWinActive ahk_class PuTTY
 ^1::
-    SendInput {Control Down}z{Control Up}:select-window -t 1{Enter}
+    SendInput {Control Down}{Space}{Control Up}:select-window -t 1{Enter}
     return
 ^2::
-    SendInput {Control Down}z{Control Up}:select-window -t 2{Enter}
+    SendInput {Control Down}{Space}{Control Up}:select-window -t 2{Enter}
     return
 ^3::
-    SendInput {Control Down}z{Control Up}:select-window -t 3{Enter}
+    SendInput {Control Down}{Space}{Control Up}:select-window -t 3{Enter}
     return
 ^4::
-    SendInput {Control Down}z{Control Up}:select-window -t 4{Enter}
+    SendInput {Control Down}{Space}{Control Up}:select-window -t 4{Enter}
     return
 ^5::
-    SendInput {Control Down}z{Control Up}:select-window -t 5{Enter}
+    SendInput {Control Down}{Space}{Control Up}:select-window -t 5{Enter}
     return
 ^6::
-    SendInput {Control Down}z{Control Up}:select-window -t 6{Enter}
+    SendInput {Control Down}{Space}{Control Up}:select-window -t 6{Enter}
     return
 ^7::
-    SendInput {Control Down}z{Control Up}:select-window -t 7{Enter}
+    SendInput {Control Down}{Space}{Control Up}:select-window -t 7{Enter}
     return
 ^8::
-    SendInput {Control Down}z{Control Up}:select-window -t 8{Enter}
+    SendInput {Control Down}{Space}{Control Up}:select-window -t 8{Enter}
     return
 ^9::
-    SendInput {Control Down}z{Control Up}:select-window -t 9{Enter}
+    SendInput {Control Down}{Space}{Control Up}:select-window -t 9{Enter}
     return
 ^0::
-    SendInput {Control Down}z{Control Up}:select-window -t 10{Enter}
-    return
-
-#IfWinActive PVP.net Client
-!r::
-    KeyWait LAlt, L 
-    SendInput Hey All{!} My best roles are in order: Support | Jungle | Mid | Top | ADC. Have all champs for trades. Play all regular supports as well as unconventional supports like Amumu, Annie, Naut, Ziggs.{Enter}
-    Sleep 500
-    SendInput If you want to trade, have a favorite support, think MummySupport is OP?  Just let me know.  Of course, will respect pick order.  Press {#}9 to hear this message again.{Enter}
+    SendInput {Control Down}{Space}{Control Up}:select-window -t 10{Enter}
     return
