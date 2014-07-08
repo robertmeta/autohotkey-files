@@ -5,17 +5,24 @@
 ; + is Shift
 ; ~ is Passthru
 
+; Force Admin
+if not A_IsAdmin
+{
+   Run *RunAs "%A_ScriptFullPath%"  ; Requires v1.0.92.01+
+   ExitApp
+}
+
 ; Basic Settings
 #SingleInstance, Force ; Only want one copy of my hotkeys
 #NoEnv  ; for performance and compatibility with future AutoHotkey releases.
 ScriptName = Robert Meltons Basics ; obvious really
 Process, Priority,, H ; abovenormal (just slightly)
 DetectHiddenWindows, Off ; Don't need hidden windows at the moment
-SendMode Input  ; for new scripts, superior speed and reliability
+SendMode Event ; for new scripts, superior speed and reliability
 SetTitleMatchMode 2 ; can have a window match anywhere inside it
 SetTitleMatchMode fast ; use fast mode
 #InstallKeybdHook
-#UseHook
+#UseHook On
 
 ; Rebind key for stupid Asus Key problem
 +Del::+Ins
@@ -48,23 +55,9 @@ LWin & Tab::AltTab
     return
 
 ; Spotify Control
-#Right:: 
-    ControlSend, ahk_parent, ^{Right}, ahk_class SpotifyMainWindow 
-    Sleep, 500
-    WinGetTitle, now_playing, ahk_class SpotifyMainWindow 
-    StringTrimLeft, playing, now_playing, 10 
-    TrayTip, Now playing:, %playing%., 10 , 16
-    return 
-;#Left:: 
-;    ControlSend, ahk_parent, ^{Left}, ahk_class SpotifyMainWindow 
-;    Sleep, 500
-;    WinGetTitle, now_playing, ahk_class SpotifyMainWindow 
-;    StringTrimLeft, playing, now_playing, 10 
-;    TrayTip, Now playing:, %playing%., 10 , 16
-;    return 
-#Down:: 
-    ControlSend, ahk_parent, {Space}, ahk_class SpotifyMainWindow 
-    return 
+#Left::Send   {Media_Prev}
+#Down::Send   {Media_Play_Pause}
+#Right::Send  {Media_Next}
 
 ; Window Control 
 #o::
@@ -128,6 +121,42 @@ LWin & Tab::AltTab
 ;    MouseClick, Left, 702, 115 ; remove label
 ;    return
 
+
+#IfWinActive ahk_class RiotWindowClass
+`::
+    send {w down}
+    sleep 3
+    send {w up}
+    sleep 3
+    MouseClick, Left
+    sleep 3
+    send {q down}
+    sleep 3
+    send {q up}
+    sleep 3
+    send {q down}
+    sleep 3
+    send {q up}
+    sleep 3
+    send {q down}
+    sleep 3
+    send {q up}
+    sleep 3
+    send {q down}
+    sleep 3
+    send {q up}
+    sleep 3
+    send {q down}
+    sleep 3
+    send {q up}
+    sleep 3
+    send {q down}
+    sleep 3
+    send {q up}
+    return
+
+
+
 ; Custom keybindings for putty
 #IfWinActive ahk_class PuTTY
 ^1::
@@ -160,6 +189,9 @@ LWin & Tab::AltTab
 ^0::
     SendInput {Control Down}{Space}{Control Up}:select-window -t 10{Enter}
     return
+
+
+
 
 #IfWinActive PVP.net Client
 !r::
