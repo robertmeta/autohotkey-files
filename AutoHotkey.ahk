@@ -8,8 +8,8 @@
 ; Force Admin
 if not A_IsAdmin
 {
-   Run *RunAs "%A_ScriptFullPath%"  ; Requires v1.0.92.01+
-   ExitApp
+    DllCall("shell32\ShellExecuteA", uint, 0, str, "RunAs", str, A_AhkPath, str, """" . A_ScriptFullPath . """", str, A_WorkingDir, int, 1)
+    ExitApp
 }
 
 ; Basic Settings
@@ -24,8 +24,10 @@ SetTitleMatchMode fast ; use fast mode
 #InstallKeybdHook
 #UseHook On
 
-; Rebind key for stupid Asus Key problem
+; Rebind key for stupid Asus default keys problem
 +Del::+Ins
++Ins::+Del
+
 ;SetNumlockState, on ; turn on numlock
 ;Numlock::ScrollLock ; then bind it to scrolllock for working with synergy
 ; Rebind key for stupid new logitech keyboard
