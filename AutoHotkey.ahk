@@ -60,6 +60,8 @@ LWin & Tab::AltTab
 #Left::Send   {Media_Prev}
 #Down::Send   {Media_Play_Pause}
 #Right::Send  {Media_Next}
+!Up::Send     {Volume_Up}
+!Down::Send   {Volume_Down}
 
 ; Window Control 
 #o::
@@ -127,33 +129,53 @@ LWin & Tab::AltTab
 #IfWinActive ahk_class RiotWindowClass
 `::
     send {w down}
-    sleep 3
+    sleep 1
     send {w up}
-    sleep 3
+    sleep 1
     MouseClick, Left
-    sleep 3
+    sleep 1
     send {q down}
-    sleep 3
+    sleep 1
     send {q up}
-    sleep 3
+    sleep 1
     send {q down}
-    sleep 3
+    sleep 1
     send {q up}
-    sleep 3
+    sleep 1
     send {q down}
-    sleep 3
+    sleep 1
     send {q up}
-    sleep 3
+    sleep 1
     send {q down}
-    sleep 3
+    sleep 1
     send {q up}
-    sleep 3
+    sleep 1
     send {q down}
-    sleep 3
+    sleep 1
     send {q up}
-    sleep 3
+    sleep 1
     send {q down}
-    sleep 3
+    sleep 1
+    send {q up}
+    sleep 1
+    send {q down}
+    sleep 1
+    send {q up}
+    sleep 1
+    send {q down}
+    sleep 1
+    send {q up}
+    sleep 1
+    send {q down}
+    sleep 1
+    send {q up}
+    sleep 1
+    send {q down}
+    sleep 1
+    send {q up}
+    sleep 1
+    send {q down}
+    sleep 1
     send {q up}
     return
 
