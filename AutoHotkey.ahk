@@ -26,7 +26,6 @@ SetTitleMatchMode fast ; use fast mode
 
 ; Rebind key for stupid Asus default keys problem
 +Del::+Ins
-+Ins::+Del
 
 ;SetNumlockState, on ; turn on numlock
 ;Numlock::ScrollLock ; then bind it to scrolllock for working with synergy
@@ -180,7 +179,7 @@ LWin & Tab::AltTab
     return
 
 ; Custom keybindings for putty
-#IfWinActive ahk_class PuTTY
+#IfWinActive ahk_class KiTTY
 ^1::
     SendInput {Control Down}{Space}{Control Up}:select-window -t 1{Enter}
     return
@@ -210,4 +209,10 @@ LWin & Tab::AltTab
     return
 ^0::
     SendInput {Control Down}{Space}{Control Up}:select-window -t 10{Enter}
+    return
+WheelUp::
+    SendInput {PgUp}
+    return
+WheelDown::
+    SendInput {PgDn}
     return
