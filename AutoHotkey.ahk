@@ -74,9 +74,11 @@ LWin & Tab::AltTab
     return
 !2::
     WinActivate, TweetDeck
+    WinActivate, Mumble -
     WinActivate, HexChat 
     WinActivate, HipChat
     WinActivate, Skype
+    WinActivate, Hangouts
     WinActivate, - VLC media player
     return
 !3::
@@ -113,7 +115,6 @@ LWin & Tab::AltTab
     return
 !9::
     WinActivateBottom, ahk_class ApolloRuntimeContentWindow
-    WinActivate, Mumble -
     WinActivate, - VLC media player
     return
 !0::
