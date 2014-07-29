@@ -52,7 +52,7 @@ LWin & Tab::AltTab
     Run https://drive.google.com/keep/u/0/#home
     return
 #t::
-    Run cmd
+    Run %comspec%
     return
 
 ; Spotify Control
@@ -70,16 +70,19 @@ LWin & Tab::AltTab
 ; "Desktops"
 !1::
     WinActivate, ahk_class CabinetWClass
+    WinActivate, - VLC media player
     return
 !2::
-    WinActivate, HexChat: 
+    WinActivate, TweetDeck
+    WinActivate, HexChat 
     WinActivate, HipChat
-    WinActivate, + #
-    WinActivate, * #
+    WinActivate, Skype
+    WinActivate, - VLC media player
     return
 !3::
     WinActivateBottom, Google Chrome
     WinActivateBottom, ahk_class MozillaWindowClass
+    WinActivate, - VLC media player
     return
 !4::
     WinActivateBottom, ahk_class KiTTY
@@ -87,44 +90,39 @@ LWin & Tab::AltTab
     WinActivateBottom, ahk_class PuTTYConfigBox
     WinActivateBottom, ahk_class Vim
     WinActivateBottom, Microsoft Visual Studio    
+    WinActivate, - VLC media player
     return
 !5::
-    WinActivateBottom, ahk_class TV_CClientWindowClass
+    WinActivate, - VLC media player
     return
 !6::
+    WinActivateBottom, ahk_class TV_CClientWindowClass
     WinActivate, TeamViewer
     WinActivate, Computers & Contacts
+    WinActivate, - VLC media player
     return
 !7::
     WinActivate, Pandora Internet Radio
     WinActivateBottom, ahk_class SpotifyMainWindow
     WinActivate, Rdio
+    WinActivate, - VLC media player
     return
 !8::
     WinActivateBottom, mail - Google Chrome
+    WinActivate, - VLC media player
     return
 !9::
     WinActivateBottom, ahk_class ApolloRuntimeContentWindow
     WinActivate, Mumble -
+    WinActivate, - VLC media player
     return
 !0::
     WinActivate, µTorrent
     WinActivate, Transmission
+    WinActivate, - VLC media player
     return
-; !h:: ; email forwarder
-;    MouseClick, Left, 920, 165 ; title
-;    Sleep 500
-;    SendInput f
-;    Sleep 500
-;    SendInput jay@lithosphere.com{Tab}
-;    Sleep 200
-;    SendInput {Tab}{Control Down}{Enter}{Control Up}
-;    Sleep 200
-;    MouseClick, Left, 702, 115 ; remove label
-;    MouseClick, Left, 702, 115 ; remove label
-;    return
 
-
+; Alistar Charge/Knockup
 #IfWinActive ahk_class RiotWindowClass
 `::
     send {w down}
