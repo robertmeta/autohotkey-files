@@ -70,6 +70,7 @@ LWin & Tab::AltTab
 ; "Desktops"
 !1::
     WinActivate, ahk_class CabinetWClass
+    WinActivate, ahk_class ShockwaveFlashFullScreen
     WinActivate, - VLC media player
     return
 !2::
@@ -79,11 +80,13 @@ LWin & Tab::AltTab
     WinActivate, HipChat
     WinActivate, Skype
     WinActivate, Hangouts
+    WinActivate, ahk_class ShockwaveFlashFullScreen
     WinActivate, - VLC media player
     return
 !3::
     WinActivateBottom, Google Chrome
     WinActivateBottom, ahk_class MozillaWindowClass
+    WinActivate, ahk_class ShockwaveFlashFullScreen
     WinActivate, - VLC media player
     return
 !4::
@@ -92,34 +95,41 @@ LWin & Tab::AltTab
     WinActivateBottom, ahk_class PuTTYConfigBox
     WinActivateBottom, ahk_class Vim
     WinActivateBottom, Microsoft Visual Studio    
+    WinActivate, ahk_class ShockwaveFlashFullScreen
     WinActivate, - VLC media player
     return
 !5::
+    WinActivate, ahk_class ShockwaveFlashFullScreen
     WinActivate, - VLC media player
     return
 !6::
     WinActivateBottom, ahk_class TV_CClientWindowClass
     WinActivate, TeamViewer
     WinActivate, Computers & Contacts
+    WinActivate, ahk_class ShockwaveFlashFullScreen
     WinActivate, - VLC media player
     return
 !7::
     WinActivate, Pandora Internet Radio
     WinActivateBottom, ahk_class SpotifyMainWindow
     WinActivate, Rdio
+    WinActivate, ahk_class ShockwaveFlashFullScreen
     WinActivate, - VLC media player
     return
 !8::
     WinActivateBottom, mail - Google Chrome
+    WinActivate, ahk_class ShockwaveFlashFullScreen
     WinActivate, - VLC media player
     return
 !9::
     WinActivateBottom, ahk_class ApolloRuntimeContentWindow
+    WinActivate, ahk_class ShockwaveFlashFullScreen
     WinActivate, - VLC media player
     return
 !0::
     WinActivate, µTorrent
     WinActivate, Transmission
+    WinActivate, ahk_class ShockwaveFlashFullScreen
     WinActivate, - VLC media player
     return
 
