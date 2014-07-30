@@ -82,6 +82,10 @@ LWin & Tab::AltTab
 !3::
     WinActivateBottom, Google Chrome
     WinActivateBottom, ahk_class MozillaWindowClass
+    #IfWinActive ahk_class MozillaWindowClass
+    {
+        Send {Control Down}``{Control Up}
+    }
     WinActivate, ahk_class ShockwaveFlashFullScreen
     WinActivate, - VLC media player
     return
