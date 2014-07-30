@@ -39,10 +39,6 @@ LWin & Tab::AltTab
     WinGetClass, class, A
     WinActivateBottom, ahk_class %class%
     return
-!`:: ; emulate the mac swap, bind to alt-` because of muscle memory
-    WinGetClass, class, A
-    WinActivateBottom, ahk_class %class%
-    return
 #s::
     SendInput {Control Down}{Alt Down}n{Alt Up}{Control Up}
     return
@@ -135,6 +131,7 @@ LWin & Tab::AltTab
 
 ; Alistar Charge/Knockup
 #IfWinActive ahk_class RiotWindowClass
+{
 `::
     send {w down}
     sleep 1
@@ -186,9 +183,11 @@ LWin & Tab::AltTab
     sleep 1
     send {q up}
     return
+}
 
 ; Custom keybindings for putty
 #IfWinActive ahk_class KiTTY
+{
 ^1::
     SendInput {Control Down}{Space}{Control Up}:select-window -t 1{Enter}
     return
@@ -225,3 +224,18 @@ WheelUp::
 WheelDown::
     SendInput {PgDn}
     return
+}
+
+#IfWinNotActive ahk_class MozillaWindowClass
+{
+!`:: ; emulate the mac swap, bind to alt-` because of muscle memory
+    WinGetClass, class, A
+    WinActivateBottom, ahk_class %class%
+    return
+}
+#IfWinActive ahk_class MozillaWindowClass
+{
+!`:: ; emulate the mac swap, bind to alt-` because of muscle memory
+    Send {Control Down}``{Control Up}
+    return
+}
