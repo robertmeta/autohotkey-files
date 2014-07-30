@@ -34,7 +34,8 @@ LWin & Tab::AltTab
 ;Capslock::Ctrl
 
 ; Act a bit like mac
-#Space::#r 
+#Space::#r
+!`:: ; emulate the mac swap, bind to alt-` because of muscle memory
 #`:: ; emulate the mac swap, bind to win-` because that works over teamviewer/synergy
     WinGetClass, class, A
     WinActivateBottom, ahk_class %class%
@@ -82,10 +83,6 @@ LWin & Tab::AltTab
 !3::
     WinActivateBottom, Google Chrome
     WinActivateBottom, ahk_class MozillaWindowClass
-    #IfWinActive ahk_class MozillaWindowClass
-    {
-        Send {Control Down}``{Control Up}
-    }
     WinActivate, ahk_class ShockwaveFlashFullScreen
     WinActivate, - VLC media player
     return
@@ -227,19 +224,5 @@ WheelUp::
     return
 WheelDown::
     SendInput {PgDn}
-    return
-}
-
-#IfWinNotActive ahk_class MozillaWindowClass
-{
-!`:: ; emulate the mac swap, bind to alt-` because of muscle memory
-    WinGetClass, class, A
-    WinActivateBottom, ahk_class %class%
-    return
-}
-#IfWinActive ahk_class MozillaWindowClass
-{
-!`:: ; emulate the mac swap, bind to alt-` because of muscle memory
-    Send {Control Down}``{Control Up}
     return
 }
