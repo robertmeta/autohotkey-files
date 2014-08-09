@@ -74,9 +74,9 @@ LWin & Tab::AltTab
     WinActivate, TweetDeck
     WinActivate, Mumble -
     WinActivate, HexChat 
-    WinActivate, HipChat
     WinActivate, Skype
     WinActivate, Hangouts
+    WinActivate, HipChat
     WinActivate, ahk_class ShockwaveFlashFullScreen
     WinActivate, - VLC media player
     return
