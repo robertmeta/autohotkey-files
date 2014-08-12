@@ -49,7 +49,7 @@ LWin & Tab::AltTab
     Run https://drive.google.com/keep/u/0/#home
     return
 #t::
-    Run %comspec%
+    Run conemu64
     return
 
 ; Spotify Control
