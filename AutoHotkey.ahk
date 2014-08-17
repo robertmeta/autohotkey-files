@@ -34,12 +34,9 @@ LWin & Tab::AltTab
 ;Capslock::Ctrl
 
 ; Act a bit like mac
-#Space::#r 
-#`:: ; emulate the mac swap, bind to win-` because that works over teamviewer/synergy
-    WinGetClass, class, A
-    WinActivateBottom, ahk_class %class%
-    return
+#Space::#r
 !`:: ; emulate the mac swap, bind to alt-` because of muscle memory
+#`:: ; emulate the mac swap, bind to win-` because that works over teamviewer/synergy
     WinGetClass, class, A
     WinActivateBottom, ahk_class %class%
     return
@@ -52,7 +49,7 @@ LWin & Tab::AltTab
     Run https://drive.google.com/keep/u/0/#home
     return
 #t::
-    Run %comspec%
+    Run conemu64
     return
 
 ; Spotify Control
@@ -79,9 +76,9 @@ LWin & Tab::AltTab
     WinActivate, TweetDeck
     WinActivate, Mumble -
     WinActivate, HexChat 
-    WinActivate, HipChat
     WinActivate, Skype
     WinActivate, Hangouts
+    WinActivate, HipChat
     WinActivate, ahk_class ShockwaveFlashFullScreen
     WinActivate, - VLC media player
     return
@@ -137,6 +134,7 @@ LWin & Tab::AltTab
 
 ; Alistar Charge/Knockup
 #IfWinActive ahk_class RiotWindowClass
+{
 `::
     send {w down}
     sleep 1
@@ -188,9 +186,11 @@ LWin & Tab::AltTab
     sleep 1
     send {q up}
     return
+}
 
 ; Custom keybindings for putty
 #IfWinActive ahk_class KiTTY
+{
 ^1::
     SendInput {Control Down}{Space}{Control Up}:select-window -t 1{Enter}
     return
@@ -227,3 +227,4 @@ WheelUp::
 WheelDown::
     SendInput {PgDn}
     return
+}
