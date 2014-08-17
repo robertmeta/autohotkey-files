@@ -59,8 +59,10 @@ LWin & Tab::AltTab
 #Left::Send   {Media_Prev}
 #Down::Send   {Media_Play_Pause}
 #Right::Send  {Media_Next}
-!Up::Send     {Volume_Up}
-!Down::Send   {Volume_Down}
+; {Volume_Up}
+!Up::Run nircmd changesysvolume +100 
+; {Volume_Down}
+!Down::Run nircmd changesysvolume -100 
 
 ; Window Control 
 #o::
