@@ -66,6 +66,7 @@ LWin & Tab::AltTab
 
 ; "Desktops"
 !1::
+    WinActivate, ahk_class VirtualConsoleClass
     WinActivate, ahk_class CabinetWClass
     WinActivate, ahk_class ShockwaveFlashFullScreen
     WinActivate, - VLC media player
@@ -76,9 +77,9 @@ LWin & Tab::AltTab
     WinActivate, HexChat 
     WinActivate, Skype
     WinActivate, Hangouts
-    WinActivate, HipChat
     WinActivate, ahk_class ShockwaveFlashFullScreen
     WinActivate, - VLC media player
+    WinActivate, Dekkers Slack
     return
 !3::
     WinActivateBottom, Google Chrome
