@@ -49,7 +49,7 @@ LWin & Tab::AltTab
     Run https://drive.google.com/keep/u/0/#home
     return
 #t::
-    Run conemu64
+    Run cmd
     return
 
 ; Spotify Control
@@ -77,13 +77,14 @@ LWin & Tab::AltTab
     WinActivate, HexChat 
     WinActivate, Skype
     WinActivate, Hangouts
+    WinActivate, Dekkers Slack
     WinActivate, ahk_class ShockwaveFlashFullScreen
     WinActivate, - VLC media player
-    WinActivate, Dekkers Slack
     return
 !3::
     WinActivateBottom, Google Chrome
     WinActivateBottom, ahk_class MozillaWindowClass
+    WinActivateBottom, - Vimperator
     WinActivate, ahk_class ShockwaveFlashFullScreen
     WinActivate, - VLC media player
     return
@@ -187,7 +188,7 @@ LWin & Tab::AltTab
     return
 }
 
-; Custom keybindings for putty
+; Custom keybindings for kitty
 #IfWinActive ahk_class KiTTY
 {
 ^1::
