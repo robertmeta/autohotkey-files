@@ -9,7 +9,7 @@
 if not A_IsAdmin
 {
     DllCall("shell32\ShellExecuteA", uint, 0, str, "RunAs", str, A_AhkPath, str, """" . A_ScriptFullPath . """", str, A_WorkingDir, int, 1)
-    ExitApp
+        ExitApp
 }
 
 ; Basic Settings
@@ -37,20 +37,17 @@ LWin & Tab::AltTab
 #Space::#r
 !`:: ; emulate the mac swap, bind to alt-` because of muscle memory
 #`:: ; emulate the mac swap, bind to win-` because that works over teamviewer/synergy
-    WinGetClass, class, A
-    WinActivateBottom, ahk_class %class%
-    return
-#s::
-    SendInput {Control Down}{Alt Down}n{Alt Up}{Control Up}
-    return
+WinGetClass, class, A
+WinActivateBottom, ahk_class %class%
+return
 
 ; Run Applications
 #n::
-    Run https://drive.google.com/keep/u/0/#home
-    return
+Run https://drive.google.com/keep/u/0/#home
+return
 #t::
-    Run conemu64
-    return
+Run cmd
+return
 
 ; Spotify Control
 #Left::Send   {Media_Prev}
@@ -63,8 +60,8 @@ LWin & Tab::AltTab
 
 ; Window Control 
 #o::
-    WinSet, AlwaysOnTop, toggle, A
-    return
+WinSet, AlwaysOnTop, toggle, A
+return
 
 ; "Desktops"
 !1::
@@ -78,7 +75,7 @@ LWin & Tab::AltTab
     WinActivate, HexChat 
     WinActivate, Skype
     WinActivate, Hangouts
-    WinActivate, HipChat
+    WinActivate, Dekkers Slack
     WinActivate, ahk_class ShockwaveFlashFullScreen
     WinActivate, - VLC media player
     return
@@ -131,100 +128,124 @@ LWin & Tab::AltTab
     WinActivate, ahk_class ShockwaveFlashFullScreen
     WinActivate, - VLC media player
     return
+#s::
+    ToggleActive("Dekkers Slack")
+    return
+#d::
+    ToggleActive("Firefox Developer Edition")
+    return
+#c::
+    ToggleActive("ahk_class KiTTY")
+    return
+
+ToggleActive(win)
+{
+    IfWinExist, %win%
+    { 
+        IfWinNotActive, %win%
+        {
+            WinActivate
+        }
+        else 
+        {
+            WinMinimize
+        } 
+    }
+}
 
 ; Alistar Charge/Knockup
 #IfWinActive ahk_class RiotWindowClass
 {
-`::
-    send {w down}
+    `::
+        send {w down}
     sleep 1
-    send {w up}
+        send {w up}
     sleep 1
-    MouseClick, Left
+        MouseClick, Left
+        sleep 1
+        send {q down}
     sleep 1
-    send {q down}
+        send {q up}
     sleep 1
-    send {q up}
+        send {q down}
     sleep 1
-    send {q down}
+        send {q up}
     sleep 1
-    send {q up}
+        send {q down}
     sleep 1
-    send {q down}
+        send {q up}
     sleep 1
-    send {q up}
+        send {q down}
     sleep 1
-    send {q down}
+        send {q up}
     sleep 1
-    send {q up}
+        send {q down}
     sleep 1
-    send {q down}
+        send {q up}
     sleep 1
-    send {q up}
+        send {q down}
     sleep 1
-    send {q down}
+        send {q up}
     sleep 1
-    send {q up}
+        send {q down}
     sleep 1
-    send {q down}
+        send {q up}
     sleep 1
-    send {q up}
+        send {q down}
     sleep 1
-    send {q down}
+        send {q up}
     sleep 1
-    send {q up}
+        send {q down}
     sleep 1
-    send {q down}
+        send {q up}
     sleep 1
-    send {q up}
+        send {q down}
     sleep 1
-    send {q down}
+        send {q up}
     sleep 1
-    send {q up}
+        send {q down}
     sleep 1
-    send {q down}
-    sleep 1
-    send {q up}
+        send {q up}
     return
 }
 
 ; Custom keybindings for putty
 #IfWinActive ahk_class KiTTY
 {
-^1::
-    SendInput {Control Down}{Space}{Control Up}:select-window -t 1{Enter}
+    ^1::
+        SendInput {Control Down}{Space}{Control Up}:select-window -t 1{Enter}
     return
-^2::
-    SendInput {Control Down}{Space}{Control Up}:select-window -t 2{Enter}
+        ^2::
+        SendInput {Control Down}{Space}{Control Up}:select-window -t 2{Enter}
     return
-^3::
-    SendInput {Control Down}{Space}{Control Up}:select-window -t 3{Enter}
+        ^3::
+        SendInput {Control Down}{Space}{Control Up}:select-window -t 3{Enter}
     return
-^4::
-    SendInput {Control Down}{Space}{Control Up}:select-window -t 4{Enter}
+        ^4::
+        SendInput {Control Down}{Space}{Control Up}:select-window -t 4{Enter}
     return
-^5::
-    SendInput {Control Down}{Space}{Control Up}:select-window -t 5{Enter}
+        ^5::
+        SendInput {Control Down}{Space}{Control Up}:select-window -t 5{Enter}
     return
-^6::
-    SendInput {Control Down}{Space}{Control Up}:select-window -t 6{Enter}
+        ^6::
+        SendInput {Control Down}{Space}{Control Up}:select-window -t 6{Enter}
     return
-^7::
-    SendInput {Control Down}{Space}{Control Up}:select-window -t 7{Enter}
+        ^7::
+        SendInput {Control Down}{Space}{Control Up}:select-window -t 7{Enter}
     return
-^8::
-    SendInput {Control Down}{Space}{Control Up}:select-window -t 8{Enter}
+        ^8::
+        SendInput {Control Down}{Space}{Control Up}:select-window -t 8{Enter}
     return
-^9::
-    SendInput {Control Down}{Space}{Control Up}:select-window -t 9{Enter}
+        ^9::
+        SendInput {Control Down}{Space}{Control Up}:select-window -t 9{Enter}
     return
-^0::
-    SendInput {Control Down}{Space}{Control Up}:select-window -t 10{Enter}
+        ^0::
+        SendInput {Control Down}{Space}{Control Up}:select-window -t 10{Enter}
     return
-WheelUp::
-    SendInput {PgUp}
+        WheelUp::
+        SendInput {PgUp}
     return
-WheelDown::
-    SendInput {PgDn}
+        WheelDown::
+        SendInput {PgDn}
     return
 }
