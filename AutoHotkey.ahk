@@ -46,8 +46,8 @@ return
 Run https://drive.google.com/keep/u/0/#home
 return
 #t::
-Run cmd
-return
+    Run cmd
+    return
 
 ; Spotify Control
 #Left::Send   {Media_Prev}
@@ -65,6 +65,7 @@ return
 
 ; "Desktops"
 !1::
+    WinActivate, ahk_class VirtualConsoleClass
     WinActivate, ahk_class CabinetWClass
     WinActivate, ahk_class ShockwaveFlashFullScreen
     WinActivate, - VLC media player
@@ -82,6 +83,7 @@ return
 !3::
     WinActivateBottom, Google Chrome
     WinActivateBottom, ahk_class MozillaWindowClass
+    WinActivateBottom, - Vimperator
     WinActivate, ahk_class ShockwaveFlashFullScreen
     WinActivate, - VLC media player
     return
@@ -209,7 +211,7 @@ ToggleActive(win)
     return
 }
 
-; Custom keybindings for putty
+; Custom keybindings for kitty
 #IfWinActive ahk_class KiTTY
 {
     ^1::
