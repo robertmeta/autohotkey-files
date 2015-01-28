@@ -88,7 +88,7 @@ return
     WinActivate, - VLC media player
     return
 !4::
-    WinActivateBottom, ahk_class KiTTY
+    WinActivateBottom, ahk_class PuTTY
     WinActivateBottom, ahk_class PuTTY
     WinActivateBottom, ahk_class PuTTYConfigBox
     WinActivateBottom, ahk_class Vim
@@ -137,7 +137,7 @@ return
     ToggleActive("Firefox Developer Edition")
     return
 #c::
-    ToggleActive("ahk_class KiTTY")
+    ToggleActive("ahk_class PuTTY")
     return
 
 ToggleActive(win)
@@ -153,101 +153,4 @@ ToggleActive(win)
             WinMinimize
         } 
     }
-}
-
-; Alistar Charge/Knockup
-#IfWinActive ahk_class RiotWindowClass
-{
-    `::
-        send {w down}
-    sleep 1
-        send {w up}
-    sleep 1
-        MouseClick, Left
-        sleep 1
-        send {q down}
-    sleep 1
-        send {q up}
-    sleep 1
-        send {q down}
-    sleep 1
-        send {q up}
-    sleep 1
-        send {q down}
-    sleep 1
-        send {q up}
-    sleep 1
-        send {q down}
-    sleep 1
-        send {q up}
-    sleep 1
-        send {q down}
-    sleep 1
-        send {q up}
-    sleep 1
-        send {q down}
-    sleep 1
-        send {q up}
-    sleep 1
-        send {q down}
-    sleep 1
-        send {q up}
-    sleep 1
-        send {q down}
-    sleep 1
-        send {q up}
-    sleep 1
-        send {q down}
-    sleep 1
-        send {q up}
-    sleep 1
-        send {q down}
-    sleep 1
-        send {q up}
-    sleep 1
-        send {q down}
-    sleep 1
-        send {q up}
-    return
-}
-
-; Custom keybindings for kitty
-#IfWinActive ahk_class KiTTY
-{
-    ^1::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 1{Enter}
-    return
-        ^2::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 2{Enter}
-    return
-        ^3::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 3{Enter}
-    return
-        ^4::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 4{Enter}
-    return
-        ^5::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 5{Enter}
-    return
-        ^6::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 6{Enter}
-    return
-        ^7::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 7{Enter}
-    return
-        ^8::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 8{Enter}
-    return
-        ^9::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 9{Enter}
-    return
-        ^0::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 10{Enter}
-    return
-        WheelUp::
-        SendInput {PgUp}
-    return
-        WheelDown::
-        SendInput {PgDn}
-    return
 }
