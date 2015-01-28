@@ -9,7 +9,7 @@
 if not A_IsAdmin
 {
     DllCall("shell32\ShellExecuteA", uint, 0, str, "RunAs", str, A_AhkPath, str, """" . A_ScriptFullPath . """", str, A_WorkingDir, int, 1)
-        ExitApp
+    ExitApp
 }
 
 ; Basic Settings
@@ -138,6 +138,9 @@ return
     return
 #c::
     ToggleActive("ahk_class PuTTY")
+    return
+!l::
+    WinMove, A,, 0, 0, 1280, 1560
     return
 
 ToggleActive(win)
