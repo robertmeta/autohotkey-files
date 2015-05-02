@@ -21,6 +21,8 @@ DetectHiddenWindows, Off ; Don't need hidden windows at the moment
 SendMode Event ; for new scripts, superior speed and reliability
 SetTitleMatchMode 2 ; can have a window match anywhere inside it
 SetTitleMatchMode fast ; use fast mode
+SetBatchLines, -1   ; maximize script speed! 
+SetWinDelay, -1 ; maximize script speed!
 #InstallKeybdHook
 #UseHook On
 
@@ -28,6 +30,7 @@ SetTitleMatchMode fast ; use fast mode
 ;Capslock::Ctrl
 
 ; Act a bit like mac
+F3::#`
 #Space::#r
 !`:: ; emulate the mac swap, bind to alt-` because of muscle memory
     WinGetClass, class, A
@@ -45,12 +48,6 @@ SetTitleMatchMode fast ; use fast mode
 #Right::Send  {Media_Next}
 !Up::Run nircmd changesysvolume +100 
 !Down::Run nircmd changesysvolume -100 
-
-; Window Control 
-; Dexpot does this for me now
-;#o::
-;    WinSet, AlwaysOnTop, toggle, A
-;    return
 
 ; Left side of main desktop
 !l::
