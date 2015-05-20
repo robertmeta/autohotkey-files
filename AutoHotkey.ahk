@@ -33,6 +33,7 @@ GroupAdd,Two,- Slack
 GroupAdd,Two,TweetDeck
 GroupAdd,Two,Mumble -
 GroupAdd,Two,Skype
+GroupAdd,Two,#
 GroupAdd,Two,Hangouts
 GroupAdd,Three,- Google Chrome
 GroupAdd,Four,ahk_class PuTTY
