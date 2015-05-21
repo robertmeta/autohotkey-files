@@ -24,11 +24,13 @@ SetTitleMatchMode fast ; use fast mode
 SetBatchLines, -1   ; maximize script speed! 
 SetWinDelay, -1 ; maximize script speed!
 #InstallKeybdHook
+#InstallMouseHook
 #UseHook On
 
 ; Groups for switching to
 GroupAdd,One,ahk_class CabinetWClass
 GroupAdd,One,ahk_class ShockwaveFlashFullScreen
+GroupAdd,One,ahk_class VirtualConsoleClass
 GroupAdd,Two,- Slack
 GroupAdd,Two,TweetDeck
 GroupAdd,Two,Mumble -
@@ -36,17 +38,15 @@ GroupAdd,Two,Skype
 GroupAdd,Two,#
 GroupAdd,Two,Hangouts
 GroupAdd,Three,- Google Chrome
-GroupAdd,Four,ahk_class PuTTY
-GroupAdd,Four,ahk_class PuTTYConfigBox
+GroupAdd,Four,ahk_class PUTTY.exe
 GroupAdd,Four,ahk_class Vim
 GroupAdd,Four,Microsoft Visual Studio    
 GroupAdd,Five,ahk_exe Evernote.exe
-GroupAdd,Six,ahk_class VirtualConsoleClass
+GroupAdd,Six,ahk_exe PaintDotNet.exe
+GroupAdd,Six,ahk_exe krita.exe
 GroupAdd,Seven,ahk_class ApolloRuntimeContentWindow
 GroupAdd,Eight,ahk_exe postbox.exe
-GroupAdd,Nine,ahk_class TV_CClientWindowClass
-GroupAdd,Nine,TeamViewer
-GroupAdd,Nine,Computers & Contacts
+GroupAdd,Nine,ahk_exe TeamViewer.exe
 GroupAdd,Ten,ahk_exe qbittorrent.exe
 
 ; Act a bit like mac
@@ -56,19 +56,20 @@ GroupAdd,Ten,ahk_exe qbittorrent.exe
     WinGetClass, class, A
     WinActivateBottom, ahk_class %class%
     return
-
-; Run Applications
-#t::
+#t:: ; Terminal
     Run Cmder
     return
-
-; Window Control 
 #o:: ; always on top
     WinSet, AlwaysOnTop, toggle, A
     return
 !l:: ; left side of main desktop
     WinMove, A,, 0, 0, 1280, 1560
     return
+
+if (A_ComputerName = "RobertSurface") {
+    ; shift-delete does shift-insert on silly surface keyboard
+    +Del::+Ins
+}
 
 ; Spotify Control
 #Left::Send   {Media_Prev}
