@@ -28,17 +28,16 @@ SetWinDelay, -1 ; maximize script speed!
 #UseHook On
 
 ; Groups for switching to
-GroupAdd,One,ahk_class CabinetWClass
-GroupAdd,One,ahk_class ShockwaveFlashFullScreen
 GroupAdd,One,ahk_class VirtualConsoleClass
+GroupAdd,One,ahk_class CabinetWClass
 GroupAdd,Two,- Slack
-GroupAdd,Two,TweetDeck
 GroupAdd,Two,Mumble -
-GroupAdd,Two,Skype
 GroupAdd,Two,#
+GroupAdd,Two,TweetDeck
+GroupAdd,Two,Skype
 GroupAdd,Two,Hangouts
 GroupAdd,Three,- Google Chrome
-GroupAdd,Four,ahk_class PUTTY.exe
+GroupAdd,Four,ahk_exe PUTTY.exe
 GroupAdd,Four,ahk_class Vim
 GroupAdd,Four,Microsoft Visual Studio    
 GroupAdd,Five,ahk_exe Evernote.exe
