@@ -27,7 +27,9 @@ SetWinDelay, -1 ; maximize script speed!
 #InstallMouseHook
 #UseHook On
 
-; Groups for switching to
+; Groups for switching to, it is worth 
+; noting that they are always switched 
+; to in order, top to bottom
 GroupAdd,One,ahk_class VirtualConsoleClass
 GroupAdd,One,ahk_class CabinetWClass
 GroupAdd,Two,- Slack
@@ -38,7 +40,7 @@ GroupAdd,Two,Skype
 GroupAdd,Two,Hangouts
 GroupAdd,Three,- Google Chrome
 GroupAdd,Four,ahk_exe PUTTY.exe
-GroupAdd,Four,ahk_class Vim
+GroupAdd,Four,ahk_class Vim,,,Scratch.md
 GroupAdd,Four,Microsoft Visual Studio    
 GroupAdd,Five,ahk_exe Evernote.exe
 GroupAdd,Six,ahk_exe PaintDotNet.exe
@@ -58,18 +60,25 @@ GroupAdd,Ten,ahk_exe qbittorrent.exe
 #t:: ; Terminal
     Run Cmder
     return
-#o:: ; always on top
+#s:: ; Terminal
+    IfWinExist, Scratch.md
+    {
+        WinActivate
+    }
+    else
+    {
+        Run C:\Users\Robert\OneDrive\Scratch.md
+    }
+    return
+#!o:: ; always on top
     WinSet, AlwaysOnTop, toggle, A
     return
-!l:: ; left side of main desktop
+#!l:: ; left side of main desktop
     WinMove, A,, 0, 0, 1280, 1560
     return
 
-if (A_ComputerName = "RobertSurface") {
-    ; shift-delete does shift-insert on silly surface keyboard
-    +Del::+Ins
-}
-
+; I never mean to hit shift-delete and this maps it to shift-insert for stupid keyboards
++Del::+Ins
 ; Spotify Control
 #Left::Send   {Media_Prev}
 #Down::Send   {Media_Play_Pause}
