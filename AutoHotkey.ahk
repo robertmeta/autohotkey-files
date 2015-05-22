@@ -43,6 +43,7 @@ GroupAdd,Four,ahk_exe PUTTY.exe
 GroupAdd,Four,ahk_class Vim,,,Scratch.md
 GroupAdd,Four,Microsoft Visual Studio    
 GroupAdd,Five,ahk_exe Evernote.exe
+GroupAdd,Five,ahk_exe MySQLWorkbench.exe
 GroupAdd,Six,ahk_exe PaintDotNet.exe
 GroupAdd,Six,ahk_exe krita.exe
 GroupAdd,Seven,ahk_class ApolloRuntimeContentWindow
