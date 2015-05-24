@@ -34,10 +34,10 @@ GroupAdd,One,ahk_class VirtualConsoleClass
 GroupAdd,One,ahk_class CabinetWClass
 GroupAdd,Two,- Slack
 GroupAdd,Two,Mumble -
-GroupAdd,Two,#
 GroupAdd,Two,TweetDeck
 GroupAdd,Two,Skype
 GroupAdd,Two,Hangouts
+GroupAdd,Two,#
 GroupAdd,Three,- Google Chrome
 GroupAdd,Four,ahk_exe PUTTY.exe
 GroupAdd,Four,ahk_class Vim,,,Scratch.md
@@ -48,6 +48,7 @@ GroupAdd,Six,ahk_exe PaintDotNet.exe
 GroupAdd,Six,ahk_exe krita.exe
 GroupAdd,Seven,ahk_class ApolloRuntimeContentWindow
 GroupAdd,Eight,ahk_exe postbox.exe
+GroupAdd,Nine,ahk_class TV_CClientWindowClass
 GroupAdd,Nine,ahk_exe TeamViewer.exe
 GroupAdd,Ten,ahk_exe qbittorrent.exe
 
@@ -91,34 +92,34 @@ GroupAdd,Ten,ahk_exe qbittorrent.exe
 
 ; "Desktops"
 !1::
-    GroupActivate, One
+    GroupActivate, One, R
     return
 !2::
-    GroupActivate, Two
+    GroupActivate, Two, R
     return
 !3::
-    GroupActivate, Three
+    GroupActivate, Three, R
     return
 !4::
-    GroupActivate, Four
+    GroupActivate, Four, R
     return
 !5::
-    GroupActivate, Five
+    GroupActivate, Five, R
     return
 !6::
-    GroupActivate, Six
+    GroupActivate, Six, R
     return
 !7::
-    GroupActivate, Seven
+    GroupActivate, Seven, R
     return
 !8::
-    GroupActivate, Eight
+    GroupActivate, Eight, R
     return
 !9::
-    GroupActivate, Nine
+    GroupActivate, Nine, R
     return
 !0::
-    GroupActivate, Ten
+    GroupActivate, Ten, R
     return
 
 ; Custom keybindings for putty (with tmux)
