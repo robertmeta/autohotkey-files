@@ -21,17 +21,18 @@ DetectHiddenWindows, Off ; Don't need hidden windows at the moment
 SendMode Event ; for new scripts, superior speed and reliability
 SetTitleMatchMode 2 ; can have a window match anywhere inside it
 SetTitleMatchMode fast ; use fast mode
-SetBatchLines, -1   ; maximize script speed! 
+SetBatchLines, -1   ; maximize script speed!
 SetWinDelay, -1 ; maximize script speed!
 #InstallKeybdHook
 #InstallMouseHook
 #UseHook On
 
-; Groups for switching to, it is worth 
-; noting that they are always switched 
+; Groups for switching to, it is worth
+; noting that they are always switched
 ; to in order, top to bottom
 GroupAdd,One,ahk_class VirtualConsoleClass
 GroupAdd,One,ahk_class CabinetWClass
+GroupAdd,One,ahk_exe qbittorrent.exe
 GroupAdd,Two,- Slack
 GroupAdd,Two,Mumble -
 GroupAdd,Two,TweetDeck
@@ -41,16 +42,21 @@ GroupAdd,Two,#
 GroupAdd,Three,- Google Chrome
 GroupAdd,Four,ahk_exe PUTTY.exe
 GroupAdd,Four,ahk_class Vim,,,Scratch.md
-GroupAdd,Four,Microsoft Visual Studio    
+GroupAdd,Four,Microsoft Visual Studio
 GroupAdd,Five,ahk_exe Evernote.exe
 GroupAdd,Five,ahk_exe MySQLWorkbench.exe
 GroupAdd,Six,ahk_exe PaintDotNet.exe
 GroupAdd,Six,ahk_exe krita.exe
-GroupAdd,Seven,ahk_class ApolloRuntimeContentWindow
+GroupAdd,Seven,ahk_class SpotifyMainWindow
 GroupAdd,Eight,ahk_exe postbox.exe
 GroupAdd,Nine,ahk_class TV_CClientWindowClass
 GroupAdd,Nine,ahk_exe TeamViewer.exe
-GroupAdd,Ten,ahk_exe qbittorrent.exe
+GroupAdd,Ten,ahk_class LOLPATCHER
+GroupAdd,Ten,ahk_exe LolClient.exe
+GroupAdd,Ten,ahk_exe Battle.net.exe
+GroupAdd,Ten,ahk_exe Steam.exe
+GroupAdd,Ten,ahk_exe HexPatch.exe
+GroupAdd,Ten,ahk_exe Hex.exe
 
 ; Act a bit like mac
 #Space::#r
