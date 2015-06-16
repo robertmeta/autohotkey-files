@@ -33,16 +33,17 @@ SetWinDelay, -1 ; maximize script speed!
 GroupAdd,One,ahk_class VirtualConsoleClass
 GroupAdd,One,ahk_class CabinetWClass
 GroupAdd,One,ahk_exe qbittorrent.exe
-GroupAdd,Two,- Slack
+GroupAdd,Two,Slack
 GroupAdd,Two,Mumble -
 GroupAdd,Two,TweetDeck
 GroupAdd,Two,Skype
 GroupAdd,Two,Hangouts
 GroupAdd,Two,#
-GroupAdd,Three,- Google Chrome
+GroupAdd,Three,- Google Chrome,,,| Trello
 GroupAdd,Four,ahk_exe PUTTY.exe
 GroupAdd,Four,ahk_class Vim,,,Scratch.md
 GroupAdd,Four,Microsoft Visual Studio
+GroupAdd,Five,| Trello
 GroupAdd,Five,ahk_exe Evernote.exe
 GroupAdd,Five,ahk_exe MySQLWorkbench.exe
 GroupAdd,Six,ahk_exe PaintDotNet.exe
@@ -84,6 +85,12 @@ GroupAdd,Ten,ahk_exe Hex.exe
 #!l:: ; left side of main desktop
     WinMove, A,, 0, 0, 1280, 1560
     return
+
+;F9::
+;    Click 2443, 397
+;    Click 2169, 80
+;    Click 1855, 191
+;    return
 
 ; I never mean to hit shift-delete and this maps it to shift-insert for stupid keyboards
 +Del::+Ins
