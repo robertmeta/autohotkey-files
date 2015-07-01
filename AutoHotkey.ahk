@@ -76,7 +76,7 @@ GroupAdd,Ten,ahk_exe Hex.exe
     }
     else
     {
-        Run C:\Users\Robert\OneDrive\Scratch.md
+        Run C:\Users\Robert\Google Drive\Scratch.md
     }
     return
 #!o:: ; always on top
@@ -85,12 +85,6 @@ GroupAdd,Ten,ahk_exe Hex.exe
 #!l:: ; left side of main desktop
     WinMove, A,, 0, 0, 1280, 1560
     return
-
-;F9::
-;    Click 2443, 397
-;    Click 2169, 80
-;    Click 1855, 191
-;    return
 
 ; I never mean to hit shift-delete and this maps it to shift-insert for stupid keyboards
 +Del::+Ins
