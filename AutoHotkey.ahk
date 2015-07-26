@@ -83,7 +83,7 @@ GroupAdd,Ten,ahk_exe Hex.exe
     WinSet, AlwaysOnTop, toggle, A
     return
 #!l:: ; left side of main desktop
-    WinMove, A,, 0, 0, 1280, 1560
+    WinMove, A,, 0, 0, 1280, 1600
     return
 
 ; I never mean to hit shift-delete and this maps it to shift-insert for stupid keyboards
@@ -93,9 +93,9 @@ GroupAdd,Ten,ahk_exe Hex.exe
 #Down::Send   {Media_Play_Pause}
 #Right::Send  {Media_Next}
 ; {Volume_Up}
-!Up::Run nircmd changesysvolume +100 
+!Up::Run nircmd changesysvolume +100
 ; {Volume_Down}
-!Down::Run nircmd changesysvolume -100 
+!Down::Run nircmd changesysvolume -100
 
 ; "Desktops"
 !1::
