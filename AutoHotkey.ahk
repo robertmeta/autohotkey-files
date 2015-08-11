@@ -5,13 +5,6 @@
 ; + is Shift
 ; ~ is Passthru
 
-; Force Admin
-if not A_IsAdmin
-{
-    DllCall("shell32\ShellExecuteA", uint, 0, str, "RunAs", str, A_AhkPath, str, """" . A_ScriptFullPath . """", str, A_WorkingDir, int, 1)
-    ExitApp
-}
-
 ; Basic Settings
 #SingleInstance, Force ; Only want one copy of my hotkeys
 #NoEnv  ; for performance and compatibility with future AutoHotkey releases.
