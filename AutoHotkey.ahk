@@ -5,13 +5,6 @@
 ; + is Shift
 ; ~ is Passthru
 
-; Force Admin
-if not A_IsAdmin
-{
-    DllCall("shell32\ShellExecuteA", uint, 0, str, "RunAs", str, A_AhkPath, str, """" . A_ScriptFullPath . """", str, A_WorkingDir, int, 1)
-    ExitApp
-}
-
 ; Basic Settings
 #SingleInstance, Force ; Only want one copy of my hotkeys
 #NoEnv  ; for performance and compatibility with future AutoHotkey releases.
@@ -33,6 +26,7 @@ SetWinDelay, -1 ; maximize script speed!
 GroupAdd,One,ahk_class VirtualConsoleClass
 GroupAdd,One,ahk_class CabinetWClass
 GroupAdd,One,ahk_exe qbittorrent.exe
+GroupAdd,One,ahk_class ConsoleWindowClass
 GroupAdd,Two,Slack
 GroupAdd,Two,Mumble -
 GroupAdd,Two,TweetDeck
@@ -168,15 +162,15 @@ GroupAdd,Ten,ahk_exe Hex.exe
 ToggleActive(Win)
 {
     IfWinExist, %Win%
-    { 
+    {
         IfWinNotActive, %Win%
         {
             WinActivate
         }
-        else 
+        else
         {
             WinMinimize
-        } 
+        }
     }
 }
 
@@ -194,7 +188,7 @@ RunOrActivate(Target, WinTitle = "")
 	; At least one app (Seapine TestTrack wouldn't always become the active
 	; window after using Run), so we always force a window activate.
 	; Activate by title if given, otherwise use PID.
-	If WinTitle <> 
+	If WinTitle <>
 	{
 		SetTitleMatchMode, 2
 		WinWait, %WinTitle%, , 3
