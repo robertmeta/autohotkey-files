@@ -8,6 +8,10 @@
 ; Basic Settings
 #SingleInstance, Force ; Only want one copy of my hotkeys
 #NoEnv  ; for performance and compatibility with future AutoHotkey releases.
+#InstallKeybdHook
+#InstallMouseHook
+#UseHook On
+#MaxThreadsPerHotkey 4
 ScriptName = Robert Meltons Basics ; obvious really
 Process, Priority,, H ; abovenormal (just slightly)
 DetectHiddenWindows, Off ; Don't need hidden windows at the moment
@@ -16,9 +20,7 @@ SetTitleMatchMode 2 ; can have a window match anywhere inside it
 SetTitleMatchMode fast ; use fast mode
 SetBatchLines, -1   ; maximize script speed!
 SetWinDelay, -1 ; maximize script speed!
-#InstallKeybdHook
-#InstallMouseHook
-#UseHook On
+
 
 ; Groups for switching to, it is worth
 ; noting that they are always switched
@@ -87,9 +89,9 @@ GroupAdd,Ten,ahk_exe Hex.exe
 #Down::Send   {Media_Play_Pause}
 #Right::Send  {Media_Next}
 ; {Volume_Up}
-!Up::Run nircmd changesysvolume +100
+;!Up::Run nircmd changesysvolume +100
 ; {Volume_Down}
-!Down::Run nircmd changesysvolume -100
+;!Down::Run nircmd changesysvolume -100
 
 ; "Desktops"
 !1::
@@ -156,6 +158,225 @@ GroupAdd,Ten,ahk_exe Hex.exe
     ^0::
         SendInput {Control Down}{Space}{Control Up}:select-window -t 10{Enter}
         return
+}
+
+#IfWinActive ahk_class D3 Main Window Class
+{
+    KeepArcaneOrbStacks = 0
+    ClickLoopEngaged = 0
+    TimeSlept = 0
+
+    PendingRightClick = 0
+    ToggleRightClick = 0
+    ~RButton::
+    {
+        PendingRightClick += 1
+        ToggleRightClick = 0
+        Return
+    }
+    !RButton::
+    {
+        ToggleRightClick := !ToggleRightClick
+        Return
+    }
+
+    PendingQ = 0
+    ToggleQ = 0
+    !q::
+    {
+        ToggleQ := !ToggleQ
+        Return
+    }
+    ~q::
+    {
+        PendingQ += 1
+        ToggleQ = 0
+        Return
+    }
+    !a::
+    {
+        ToggleQ := !ToggleQ
+        Return
+    }
+    ~a::
+    {
+        PendingQ += 1
+        ToggleQ = 0
+        Return
+    }
+
+    PendingW = 0
+    ToggleW = 0
+    !w::
+    {
+        ToggleW := !ToggleW
+        Return
+    }
+    ~w::
+    {
+        PendingW += 1
+        ToggleW = 0
+        Return
+    }
+    !s::
+    {
+        ToggleW := !ToggleW
+        Return
+    }
+    ~s::
+    {
+        PendingW += 1
+        ToggleW = 0
+        Return
+    }
+
+
+    PendingE = 0
+    ToggleE = 0
+    ~e::
+    {
+        PendingE += 1
+        ToggleE = 0
+        Return
+    }
+    !e::
+    {
+        ToggleE := !ToggleE
+        Return
+    }
+    ~d::
+    {
+        PendingE += 1
+        ToggleE = 0
+        Return
+    }
+    !d::
+    {
+        ToggleE := !ToggleE
+        Return
+    }
+
+
+    PendingR = 0
+    ToggleR = 0
+    !r::
+    {
+        ToggleR := !ToggleR
+        Return
+    }
+    ~r::
+    {
+        PendingR += 1
+        ToggleR = 0
+        Return
+    }
+    !f::
+    {
+        ToggleR := !ToggleR
+        Return
+    }
+    ~f::
+    {
+        PendingR += 1
+        ToggleR = 0
+        Return
+    }
+
+    ; Archon Mode
+    ~t::
+    {
+        ToggleQ = 1
+        ToggleR = 0
+        Return
+    }
+    ~t Up::
+    {
+        ToggleQ = 1
+        ToggleR = 1
+        Return
+    }
+
+
+    MButton::
+    {
+	ClickLoopEngaged := !ClickLoopEngaged
+	While ClickLoopEngaged
+        {
+            ; E first because it is teleport
+            If (PendingE > 0 or ToggleE > 0)
+            {
+                SendInput, {e Down}
+                Sleep 10
+                TimeSlept += 10
+                SendInput, {e Up}
+                PendingE -= 1
+            }
+            If (PendingR > 0 or ToggleR > 0)
+            {
+                SendInput, {r Down}
+                Sleep 10
+                TimeSlept += 10
+                SendInput, {r Up}
+                PendingR -= 1
+            }
+            If (PendingQ > 0 or ToggleQ > 0)
+            {
+                SendInput, {q Down}
+                Sleep 10
+                TimeSlept += 10
+                SendInput, {q Up}
+                PendingQ -= 1
+            }
+            If (PendingW > 0 or ToggleW > 0)
+            {
+                SendInput, {w Down}
+                Sleep 10
+                TimeSlept += 10
+                SendInput, {w Up}
+                PendingW -= 1
+            }
+            If (PendingRightClick > 0 or ToggleRightClick > 0)
+            {
+                SendInput, {RButton Down}
+                Sleep 10
+                TimeSlept += 10
+                SendInput, {RButton Up}
+                PendingRightClick -= 1
+            }
+            ; This will keep up the Arcane Orb stacks
+            If (KeepArcaneOrbStacks > 0 and TimeSlept > 4500)
+            {
+                SendInput, {Shift Down}
+                SendInput, {LButton Down}
+                Sleep 10
+                SendInput, {LButton Up}
+                SendInput, {Shift Up}
+                TimeSlept = 0
+            }
+
+            SendInput, {LButton Down}
+            Sleep 100
+            TimeSlept += 100
+            SendInput, {LButton Up}
+        }
+    }
+
+    ~LButton::
+    {
+        ClickLoopEngaged = 0
+        TimeSlept = 0
+        PendingQ = 0
+        PendingW = 0
+        PendingE = 0
+        PendingR = 0
+        PendingRightClick = 0
+        ToggleQ = 0
+        ToggleW = 0
+        ToggleE = 0
+        ToggleR = 0
+        ToggleRightClick = 0
+        Return
+    }
 }
 
 ; Support functions
