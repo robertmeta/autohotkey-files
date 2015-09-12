@@ -172,12 +172,12 @@ GroupAdd,Ten,ahk_exe Hex.exe
     {
         PendingRightClick += 1
         ToggleRightClick = 0
-        Return
+        return
     }
     !RButton::
     {
         ToggleRightClick := !ToggleRightClick
-        Return
+        return
     }
 
     PendingQ = 0
@@ -185,24 +185,24 @@ GroupAdd,Ten,ahk_exe Hex.exe
     !q::
     {
         ToggleQ := !ToggleQ
-        Return
+        return
     }
     ~q::
     {
         PendingQ += 1
         ToggleQ = 0
-        Return
+        return
     }
     !a::
     {
         ToggleQ := !ToggleQ
-        Return
+        return
     }
     ~a::
     {
         PendingQ += 1
         ToggleQ = 0
-        Return
+        return
     }
 
     PendingW = 0
@@ -210,24 +210,24 @@ GroupAdd,Ten,ahk_exe Hex.exe
     !w::
     {
         ToggleW := !ToggleW
-        Return
+        return
     }
     ~w::
     {
         PendingW += 1
         ToggleW = 0
-        Return
+        return
     }
     !s::
     {
         ToggleW := !ToggleW
-        Return
+        return
     }
     ~s::
     {
         PendingW += 1
         ToggleW = 0
-        Return
+        return
     }
 
 
@@ -237,23 +237,23 @@ GroupAdd,Ten,ahk_exe Hex.exe
     {
         PendingE += 1
         ToggleE = 0
-        Return
+        return
     }
     !e::
     {
         ToggleE := !ToggleE
-        Return
+        return
     }
     ~d::
     {
         PendingE += 1
         ToggleE = 0
-        Return
+        return
     }
     !d::
     {
         ToggleE := !ToggleE
-        Return
+        return
     }
 
 
@@ -262,38 +262,40 @@ GroupAdd,Ten,ahk_exe Hex.exe
     !r::
     {
         ToggleR := !ToggleR
-        Return
+        return
     }
     ~r::
     {
         PendingR += 1
         ToggleR = 0
-        Return
+        return
     }
     !f::
     {
         ToggleR := !ToggleR
-        Return
+        return
     }
     ~f::
     {
         PendingR += 1
         ToggleR = 0
-        Return
+        return
     }
 
     ; Archon Mode
     ~t::
     {
-        ToggleQ = 1
+	; Trying to get procs to cooldown Archon
+        ToggleQ = 0
         ToggleR = 0
-        Return
+        return
     }
     ~t Up::
     {
+	; GO GO GO 
         ToggleQ = 1
         ToggleR = 1
-        Return
+        return
     }
 
 
@@ -306,40 +308,40 @@ GroupAdd,Ten,ahk_exe Hex.exe
             If (PendingE > 0 or ToggleE > 0)
             {
                 SendInput, {e Down}
-                Sleep 10
-                TimeSlept += 10
+                Sleep 20
+                TimeSlept += 20
                 SendInput, {e Up}
                 PendingE -= 1
             }
             If (PendingR > 0 or ToggleR > 0)
             {
                 SendInput, {r Down}
-                Sleep 10
-                TimeSlept += 10
+                Sleep 20
+                TimeSlept += 20
                 SendInput, {r Up}
                 PendingR -= 1
             }
             If (PendingQ > 0 or ToggleQ > 0)
             {
                 SendInput, {q Down}
-                Sleep 10
-                TimeSlept += 10
+                Sleep 20
+                TimeSlept += 20
                 SendInput, {q Up}
                 PendingQ -= 1
             }
             If (PendingW > 0 or ToggleW > 0)
             {
                 SendInput, {w Down}
-                Sleep 10
-                TimeSlept += 10
+                Sleep 20
+                TimeSlept += 20
                 SendInput, {w Up}
                 PendingW -= 1
             }
             If (PendingRightClick > 0 or ToggleRightClick > 0)
             {
                 SendInput, {RButton Down}
-                Sleep 10
-                TimeSlept += 10
+                Sleep 20
+                TimeSlept += 20
                 SendInput, {RButton Up}
                 PendingRightClick -= 1
             }
@@ -348,17 +350,18 @@ GroupAdd,Ten,ahk_exe Hex.exe
             {
                 SendInput, {Shift Down}
                 SendInput, {LButton Down}
-                Sleep 10
+                Sleep 20
                 SendInput, {LButton Up}
                 SendInput, {Shift Up}
                 TimeSlept = 0
             }
 
             SendInput, {LButton Down}
-            Sleep 100
-            TimeSlept += 100
+            Sleep 200
+            TimeSlept += 200
             SendInput, {LButton Up}
         }
+	return
     }
 
     ~LButton::
@@ -375,7 +378,7 @@ GroupAdd,Ten,ahk_exe Hex.exe
         ToggleE = 0
         ToggleR = 0
         ToggleRightClick = 0
-        Return
+        return
     }
 }
 
