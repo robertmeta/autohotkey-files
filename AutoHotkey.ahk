@@ -30,11 +30,12 @@ GroupAdd,One,ahk_class CabinetWClass
 GroupAdd,One,ahk_exe qbittorrent.exe
 GroupAdd,One,ahk_class ConsoleWindowClass
 GroupAdd,Two,Slack
-GroupAdd,Two,Mumble -
+GroupAdd,Two,#
+GroupAdd,Two,Mumble
 GroupAdd,Two,TweetDeck
 GroupAdd,Two,Skype
 GroupAdd,Two,Hangouts
-GroupAdd,Two,#
+GroupAdd,Two,Gitter
 GroupAdd,Three,- Google Chrome,,,| Trello
 GroupAdd,Four,ahk_exe PUTTY.exe
 GroupAdd,Four,ahk_class Vim,,,Scratch.md
@@ -158,6 +159,12 @@ GroupAdd,Ten,ahk_exe Hex.exe
     ^0::
         SendInput {Control Down}{Space}{Control Up}:select-window -t 10{Enter}
         return
+    ^`::
+        SendInput {Control Down}{Space}{Control Up}w
+        return
+    !`::
+        SendInput {Control Down}{Space}{Control Up}w
+        return
 }
 
 #IfWinActive ahk_class D3 Main Window Class
@@ -170,7 +177,13 @@ GroupAdd,Ten,ahk_exe Hex.exe
     ToggleRightClick = 0
     ~RButton::
     {
-        PendingRightClick += 1
+        PendingRightClick += 10000
+        ToggleRightClick = 0
+        return
+    }
+    ~RButton Up::
+    {
+        PendingRightClick -= 9999
         ToggleRightClick = 0
         return
     }
@@ -292,7 +305,21 @@ GroupAdd,Ten,ahk_exe Hex.exe
     }
     ~t Up::
     {
-	; GO GO GO 
+	; GO GO GO
+        ToggleQ = 1
+        ToggleR = 1
+        return
+    }
+    ~g::
+    {
+	; Trying to get procs to cooldown Archon
+        ToggleQ = 0
+        ToggleR = 0
+        return
+    }
+    ~g Up::
+    {
+	; GO GO GO
         ToggleQ = 1
         ToggleR = 1
         return
