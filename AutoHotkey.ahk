@@ -162,9 +162,6 @@ GroupAdd,Ten,ahk_exe Hex.exe
     ^`::
         SendInput {Control Down}{Space}{Control Up}w
         return
-    !`::
-        SendInput {Control Down}{Space}{Control Up}w
-        return
 }
 
 #IfWinActive ahk_class D3 Main Window Class
