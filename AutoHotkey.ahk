@@ -9,6 +9,7 @@
 #SingleInstance, Force ; Only want one copy of my hotkeys
 #NoEnv  ; for performance and compatibility with future AutoHotkey releases.
 #MaxThreadsPerHotkey 4 ; this allow us to have loops and so forth
+#WinActivateForce ; avoid weird flashing taskbar buttons on switch
 ScriptName = Robert Meltons Basics ; obvious really
 Process, Priority,, H ; abovenormal (just slightly)
 DetectHiddenWindows, Off ; Don't need hidden windows at the moment
@@ -22,34 +23,46 @@ SetWinDelay, -1 ; maximize script speed!
 ; Groups for switching to, it is worth
 ; noting that they are always switched
 ; to in order, top to bottom
+; 1
 GroupAdd,One,ahk_class VirtualConsoleClass
 GroupAdd,One,ahk_class CabinetWClass
 GroupAdd,One,ahk_exe qbittorrent.exe
 GroupAdd,One,ahk_class ConsoleWindowClass
-GroupAdd,Two,ahk_exe hexchat.exe
+; 2
+GroupAdd,Two, HexChat:
 GroupAdd,Two,ahk_exe mumble.exe
 GroupAdd,Two,TweetDeck
 GroupAdd,Two,Hangouts
-GroupAdd,Three,- Google Chrome,,,| Trello
+; 3
+GroupAdd,Three,ahk_exe firefox.exe
+GroupAdd,Three,- Google Chrome,,,Trello
+; 4
 GroupAdd,Four,ahk_exe PUTTY.exe
 GroupAdd,Four,ahk_class Vim,,,Scratch.md
 GroupAdd,Four,Microsoft Visual Studio
-GroupAdd,Five,| Trello
+; 5
+GroupAdd,Five,Trello
 GroupAdd,Five,ahk_exe Evernote.exe
 GroupAdd,Five,ahk_exe MySQLWorkbench.exe
+; 6
 GroupAdd,Six,ahk_exe PaintDotNet.exe
 GroupAdd,Six,ahk_exe krita.exe
+; 7
 GroupAdd,Seven,ahk_class SpotifyMainWindow
+; 8
 GroupAdd,Eight,ahk_exe postbox.exe
 GroupAdd,Eight,Inbox
+; 9
 GroupAdd,Nine,ahk_class TV_CClientWindowClass
 GroupAdd,Nine,ahk_exe TeamViewer.exe
+; 10
 GroupAdd,Ten,ahk_class LOLPATCHER
 GroupAdd,Ten,ahk_exe LolClient.exe
 GroupAdd,Ten,ahk_exe Battle.net.exe
 GroupAdd,Ten,ahk_exe Steam.exe
 GroupAdd,Ten,ahk_exe HexPatch.exe
 GroupAdd,Ten,ahk_exe Hex.exe
+
 
 ; Act a bit like mac
 #Space::#r
