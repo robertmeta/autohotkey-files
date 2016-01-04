@@ -29,8 +29,12 @@ GroupAdd,One,ahk_class CabinetWClass
 GroupAdd,One,ahk_exe qbittorrent.exe
 GroupAdd,One,ahk_class ConsoleWindowClass
 ; 2
-GroupAdd,Two, HexChat:
 GroupAdd,Two,ahk_exe mumble.exe
+GroupAdd,Two, HexChat:
+GroupAdd,Two, freenode
+GroupAdd,Two, OFTC
+GroupAdd,Two,ahk_exe Gitter.exe
+GroupAdd,Two,ahk_exe slack.exe
 GroupAdd,Two,TweetDeck
 GroupAdd,Two,Hangouts
 ; 3
@@ -60,6 +64,7 @@ GroupAdd,Ten,ahk_class LOLPATCHER
 GroupAdd,Ten,ahk_exe LolClient.exe
 GroupAdd,Ten,ahk_exe Battle.net.exe
 GroupAdd,Ten,ahk_exe Steam.exe
+GroupAdd,Ten, Dungeon Crawl Stone Soup
 GroupAdd,Ten,ahk_exe HexPatch.exe
 GroupAdd,Ten,ahk_exe Hex.exe
 
