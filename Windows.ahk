@@ -10,7 +10,7 @@
 #NoEnv  ; for performance and compatibility with future AutoHotkey releases.
 #MaxThreadsPerHotkey 4 ; this allow us to have loops and so forth
 #WinActivateForce ; avoid weird flashing taskbar buttons on switch
-ScriptName = Robert Meltons Basics ; obvious really
+ScriptName = Improved Windows Bindings ; obvious really
 Process, Priority,, H ; abovenormal (just slightly)
 DetectHiddenWindows, Off ; Don't need hidden windows at the moment
 SendMode Event ; for new scripts, superior speed and reliability
