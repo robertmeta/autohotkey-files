@@ -47,23 +47,14 @@ SetWinDelay, -1 ; maximize script speed!
 
     PendingQ = 0
     ToggleQ = 0
+    !a::
     !q::
     {
         ToggleQ := !ToggleQ
         return
     }
-    ~q::
-    {
-        PendingQ += 1
-        ToggleQ = 0
-        return
-    }
-    !a::
-    {
-        ToggleQ := !ToggleQ
-        return
-    }
     ~a::
+    ~q::
     {
         PendingQ += 1
         ToggleQ = 0
@@ -72,172 +63,142 @@ SetWinDelay, -1 ; maximize script speed!
 
     PendingW = 0
     ToggleW = 0
+    !s::
     !w::
     {
         ToggleW := !ToggleW
         return
     }
+    ~s::
     ~w::
     {
         PendingW += 1
         ToggleW = 0
         return
     }
-    !s::
-    {
-        ToggleW := !ToggleW
-        return
-    }
-    ~s::
-    {
-        PendingW += 1
-        ToggleW = 0
-        return
-    }
-
 
     PendingE = 0
     ToggleE = 0
+    ~d::
     ~e::
     {
         PendingE += 1
         ToggleE = 0
         return
     }
+    !d::
     !e::
     {
         ToggleE := !ToggleE
         return
     }
-    ~d::
-    {
-        PendingE += 1
-        ToggleE = 0
-        return
-    }
-    !d::
-    {
-        ToggleE := !ToggleE
-        return
-    }
-
 
     PendingR = 0
     ToggleR = 0
-    !r::
-    {
-        ToggleR := !ToggleR
-        return
-    }
     ~r::
-    {
-        PendingR += 1
-        ToggleR = 0
-        return
-    }
-    !f::
-    {
-        ToggleR := !ToggleR
-        return
-    }
     ~f::
     {
         PendingR += 1
         ToggleR = 0
         return
     }
+    !r::
+    !f::
+    {
+        ToggleR := !ToggleR
+        return
+    }
 
-    ; Archon Mode
+    ToggleCombo = 0
     ~t::
-    {
-	; Trying to get procs to cooldown Archon
-        ToggleQ = 0
-        ToggleR = 0
-        return
-    }
-    ~t Up::
-    {
-	; GO GO GO
-        ToggleQ = 1
-        ToggleR = 1
-        return
-    }
     ~g::
     {
-	; Trying to get procs to cooldown Archon
-        ToggleQ = 0
-        ToggleR = 0
-        return
-    }
-    ~g Up::
-    {
-	; GO GO GO
-        ToggleQ = 1
-        ToggleR = 1
+        ToggleCombo := !ToggleCombo
         return
     }
 
-
+    +MButton::
     MButton::
     {
 	ClickLoopEngaged := !ClickLoopEngaged
 	While ClickLoopEngaged
         {
-            ; E first because it is teleport
-            If (PendingE > 0 or ToggleE > 0)
+            If (PendingRightClick > 0 or ToggleRightClick > 0)
             {
-                SendInput, {e Down}
-                Sleep 20
-                TimeSlept += 20
-                SendInput, {e Up}
-                PendingE -= 1
+                Sleep 10
+                TimeSlept += 10
+                SendInput, {RButton Down}
+                Sleep 50
+                TimeSlept += 50
+                SendInput, {RButton Up}
+                PendingRightClick -= 1
+                Sleep 10
+                TimeSlept += 10
             }
             If (PendingR > 0 or ToggleR > 0)
             {
+                Sleep 10
+                TimeSlept += 10
                 SendInput, {r Down}
-                Sleep 20
-                TimeSlept += 20
+                Sleep 50
+                TimeSlept += 50
                 SendInput, {r Up}
                 PendingR -= 1
+                Sleep 10
+                TimeSlept += 10
             }
-            If (PendingQ > 0 or ToggleQ > 0)
+            If (PendingE > 0 or ToggleE > 0)
             {
+                Sleep 10
+                TimeSlept += 10
+                SendInput, {e Down}
+                Sleep 50
+                TimeSlept += 50
+                SendInput, {e Up}
+                PendingE -= 1
+                Sleep 10
+                TimeSlept += 10
+            }
+            If (PendingQ > 0 or ToggleQ > 0 or ToggleCombo > 0)
+            {
+                Sleep 10
+                TimeSlept += 10
                 SendInput, {q Down}
-                Sleep 20
-                TimeSlept += 20
+                Sleep 50
+                TimeSlept += 50
                 SendInput, {q Up}
                 PendingQ -= 1
+                Sleep 10
+                TimeSlept += 10
             }
-            If (PendingW > 0 or ToggleW > 0)
+            If (PendingW > 0 or ToggleW > 0 or ToggleCombo > 0)
             {
+                Sleep 10
+                TimeSlept += 10
                 SendInput, {w Down}
-                Sleep 20
-                TimeSlept += 20
+                Sleep 50
+                TimeSlept += 50
                 SendInput, {w Up}
                 PendingW -= 1
+                Sleep 10
+                TimeSlept += 10
             }
-            If (PendingRightClick > 0 or ToggleRightClick > 0)
-            {
-                SendInput, {RButton Down}
-                Sleep 20
-                TimeSlept += 20
-                SendInput, {RButton Up}
-                PendingRightClick -= 1
-            }
+
             ; This will keep up the Arcane Orb stacks
             If (KeepArcaneOrbStacks > 0 and TimeSlept > 4500)
             {
                 SendInput, {Shift Down}
                 SendInput, {LButton Down}
-                Sleep 20
+                Sleep 50
+                TimeSlept += 50
                 SendInput, {LButton Up}
                 SendInput, {Shift Up}
                 TimeSlept = 0
             }
 
             SendInput, {LButton Down}
-            Sleep 200
-            TimeSlept += 200
+            Sleep 100
+            TimeSlept += 100
             SendInput, {LButton Up}
         }
 	return
