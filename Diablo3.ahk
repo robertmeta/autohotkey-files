@@ -21,7 +21,6 @@ SetWinDelay, -1 ; maximize script speed!
 
 #IfWinActive ahk_class D3 Main Window Class
 {
-    KeepArcaneOrbStacks = 0
     ClickLoopEngaged = 0
     TimeSlept = 0
 
@@ -123,7 +122,7 @@ SetWinDelay, -1 ; maximize script speed!
 	ClickLoopEngaged := !ClickLoopEngaged
 	While ClickLoopEngaged
         {
-            If (PendingRightClick > 0 or ToggleRightClick > 0)
+            If (PendingRightClick > 0 or ToggleRightClick > 0 or ToggleCombo > 0)
             {
                 Sleep 10
                 TimeSlept += 10
@@ -147,7 +146,7 @@ SetWinDelay, -1 ; maximize script speed!
                 Sleep 10
                 TimeSlept += 10
             }
-            If (PendingE > 0 or ToggleE > 0)
+            If (PendingE > 0 or ToggleE > 0 or ToggleCombo > 0)
             {
                 Sleep 10
                 TimeSlept += 10
@@ -171,7 +170,7 @@ SetWinDelay, -1 ; maximize script speed!
                 Sleep 10
                 TimeSlept += 10
             }
-            If (PendingW > 0 or ToggleW > 0 or ToggleCombo > 0)
+            If (PendingW > 0 or ToggleW > 0)
             {
                 Sleep 10
                 TimeSlept += 10
@@ -182,18 +181,6 @@ SetWinDelay, -1 ; maximize script speed!
                 PendingW -= 1
                 Sleep 10
                 TimeSlept += 10
-            }
-
-            ; This will keep up the Arcane Orb stacks
-            If (KeepArcaneOrbStacks > 0 and TimeSlept > 4500)
-            {
-                SendInput, {Shift Down}
-                SendInput, {LButton Down}
-                Sleep 50
-                TimeSlept += 50
-                SendInput, {LButton Up}
-                SendInput, {Shift Up}
-                TimeSlept = 0
             }
 
             SendInput, {LButton Down}
