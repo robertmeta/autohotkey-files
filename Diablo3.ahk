@@ -18,6 +18,7 @@ SetTitleMatchMode 2 ; can have a window match anywhere inside it
 SetTitleMatchMode fast ; use fast mode
 SetBatchLines, -1   ; maximize script speed!
 SetWinDelay, -1 ; maximize script speed!
+Menu, Tray, Icon, shell32.dll, 266 ; Clock Look (Diablo is time sink)
 
 #IfWinActive ahk_class D3 Main Window Class
 {
@@ -122,7 +123,7 @@ SetWinDelay, -1 ; maximize script speed!
 	ClickLoopEngaged := !ClickLoopEngaged
 	While ClickLoopEngaged
         {
-            If (PendingRightClick > 0 or ToggleRightClick > 0 or ToggleCombo > 0)
+            If (PendingRightClick > 0 or ToggleRightClick > 0)
             {
                 Sleep 10
                 TimeSlept += 10
@@ -131,30 +132,6 @@ SetWinDelay, -1 ; maximize script speed!
                 TimeSlept += 50
                 SendInput, {RButton Up}
                 PendingRightClick -= 1
-                Sleep 10
-                TimeSlept += 10
-            }
-            If (PendingR > 0 or ToggleR > 0)
-            {
-                Sleep 10
-                TimeSlept += 10
-                SendInput, {r Down}
-                Sleep 50
-                TimeSlept += 50
-                SendInput, {r Up}
-                PendingR -= 1
-                Sleep 10
-                TimeSlept += 10
-            }
-            If (PendingE > 0 or ToggleE > 0 or ToggleCombo > 0)
-            {
-                Sleep 10
-                TimeSlept += 10
-                SendInput, {e Down}
-                Sleep 50
-                TimeSlept += 50
-                SendInput, {e Up}
-                PendingE -= 1
                 Sleep 10
                 TimeSlept += 10
             }
@@ -170,7 +147,31 @@ SetWinDelay, -1 ; maximize script speed!
                 Sleep 10
                 TimeSlept += 10
             }
-            If (PendingW > 0 or ToggleW > 0)
+            If (PendingE > 0 or ToggleE > 0 or ToggleCombo > 0)
+            {
+                Sleep 10
+                TimeSlept += 10
+                SendInput, {e Down}
+                Sleep 50
+                TimeSlept += 50
+                SendInput, {e Up}
+                PendingE -= 1
+                Sleep 10
+                TimeSlept += 10
+            }
+            If (PendingR > 0 or ToggleR > 0 or ToggleCombo > 0)
+            {
+                Sleep 10
+                TimeSlept += 10
+                SendInput, {r Down}
+                Sleep 50
+                TimeSlept += 50
+                SendInput, {r Up}
+                PendingR -= 1
+                Sleep 10
+                TimeSlept += 10
+            }
+            If (PendingW > 0 or ToggleW > 0 or ToggleCombo > 0)
             {
                 Sleep 10
                 TimeSlept += 10

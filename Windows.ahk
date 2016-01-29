@@ -18,6 +18,7 @@ SetTitleMatchMode 2 ; can have a window match anywhere inside it
 SetTitleMatchMode fast ; use fast mode
 SetBatchLines, -1   ; maximize script speed!
 SetWinDelay, -1 ; maximize script speed!
+Menu, Tray, Icon, shell32.dll, 44 ; Make icon the star
 
 
 ; Groups for switching to, it is worth
@@ -105,7 +106,6 @@ GroupAdd,Ten,ahk_exe Hex.exe
     {
 	Run "explorer"
     }
-
     return
 
 ; I never mean to hit shift-delete and this maps it to shift-insert for stupid keyboards
