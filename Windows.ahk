@@ -42,6 +42,7 @@ GroupAdd,Two,Hangouts
 GroupAdd,Three,ahk_exe firefox.exe
 GroupAdd,Three,- Google Chrome,,,Trello
 ; 4
+GroupAdd,Four,ahk_exe MobaXterm.exe
 GroupAdd,Four,ahk_exe PUTTY.exe
 GroupAdd,Four,ahk_class Vim,,,Scratch.md
 GroupAdd,Four,Microsoft Visual Studio
@@ -180,8 +181,123 @@ GroupAdd,Ten,ahk_exe Hex.exe
     ^0::
         SendInput {Control Down}{Space}{Control Up}:select-window -t 10{Enter}
         return
-    ^`::
-        SendInput {Control Down}{Space}{Control Up}w
+    !WheelDown::
+        SendInput {Control Down}{Space}{Control Up}n
+        return
+    !WheelUp::
+        SendInput {Control Down}{Space}{Control Up}p
+        return
+}
+
+; Custom keybindings for moba
+#IfWinActive ahk_exe MobaXterm.exe
+{
+    ^!1::
+	Loop, 10 {
+	        SendInput {Control Down}{Alt Down}{Left}{Alt Up}{Control Up}
+        }
+        return
+    ^!2::
+	Loop, 10 {
+	        SendInput {Control Down}{Alt Down}{Left}{Alt Up}{Control Up}
+        }
+	Loop, 1 {
+	        SendInput {Control Down}{Alt Down}{Right}{Alt Up}{Control Up}
+        }
+        return
+    ^!3::
+	Loop, 10 {
+	        SendInput {Control Down}{Alt Down}{Left}{Alt Up}{Control Up}
+        }
+	Loop, 2 {
+	        SendInput {Control Down}{Alt Down}{Right}{Alt Up}{Control Up}
+        }
+        return
+    ^!4::
+	Loop, 10 {
+	        SendInput {Control Down}{Alt Down}{Left}{Alt Up}{Control Up}
+        }
+	Loop, 3 {
+	        SendInput {Control Down}{Alt Down}{Right}{Alt Up}{Control Up}
+        }
+        return
+    ^!5::
+	Loop, 10 {
+	        SendInput {Control Down}{Alt Down}{Left}{Alt Up}{Control Up}
+        }
+	Loop, 4 {
+	        SendInput {Control Down}{Alt Down}{Right}{Alt Up}{Control Up}
+        }
+        return
+    ^!6::
+	Loop, 10 {
+	        SendInput {Control Down}{Alt Down}{Left}{Alt Up}{Control Up}
+        }
+	Loop, 5 {
+	        SendInput {Control Down}{Alt Down}{Right}{Alt Up}{Control Up}
+        }
+        return
+    ^!7::
+	Loop, 10 {
+	        SendInput {Control Down}{Alt Down}{Left}{Alt Up}{Control Up}
+        }
+	Loop, 6 {
+	        SendInput {Control Down}{Alt Down}{Right}{Alt Up}{Control Up}
+        }
+        return
+    ^!8::
+	Loop, 10 {
+	        SendInput {Control Down}{Alt Down}{Left}{Alt Up}{Control Up}
+        }
+	Loop, 7 {
+	        SendInput {Control Down}{Alt Down}{Right}{Alt Up}{Control Up}
+        }
+        return
+    ^!9::
+	Loop, 10 {
+	        SendInput {Control Down}{Alt Down}{Left}{Alt Up}{Control Up}
+        }
+	Loop, 8 {
+	        SendInput {Control Down}{Alt Down}{Right}{Alt Up}{Control Up}
+        }
+        return
+    ^!0::
+	Loop, 10 {
+	        SendInput {Control Down}{Alt Down}{Left}{Alt Up}{Control Up}
+        }
+	Loop, 9 {
+	        SendInput {Control Down}{Alt Down}{Right}{Alt Up}{Control Up}
+        }
+        return
+    ^1::
+        SendInput {Control Down}{Space}{Control Up}:select-window -t 1{Enter}
+        return
+    ^2::
+        SendInput {Control Down}{Space}{Control Up}:select-window -t 2{Enter}
+        return
+    ^3::
+        SendInput {Control Down}{Space}{Control Up}:select-window -t 3{Enter}
+        return
+    ^4::
+        SendInput {Control Down}{Space}{Control Up}:select-window -t 4{Enter}
+        return
+    ^5::
+        SendInput {Control Down}{Space}{Control Up}:select-window -t 5{Enter}
+        return
+    ^6::
+        SendInput {Control Down}{Space}{Control Up}:select-window -t 6{Enter}
+        return
+    ^7::
+        SendInput {Control Down}{Space}{Control Up}:select-window -t 7{Enter}
+        return
+    ^8::
+        SendInput {Control Down}{Space}{Control Up}:select-window -t 8{Enter}
+        return
+    ^9::
+        SendInput {Control Down}{Space}{Control Up}:select-window -t 9{Enter}
+        return
+    ^0::
+        SendInput {Control Down}{Space}{Control Up}:select-window -t 10{Enter}
         return
     !WheelDown::
         SendInput {Control Down}{Space}{Control Up}n
