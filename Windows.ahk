@@ -42,7 +42,7 @@ GroupAdd,Two,Hangouts
 GroupAdd,Three,ahk_exe firefox.exe
 GroupAdd,Three,- Google Chrome,,,Trello
 ; 4
-GroupAdd,Four,ahk_exe MobaXterm.exe
+GroupAdd,Four,ahk_exe MobaXterm_Personal_8.6.exe
 GroupAdd,Four,ahk_exe PUTTY.exe
 GroupAdd,Four,ahk_class Vim,,,Scratch.md
 GroupAdd,Four,Microsoft Visual Studio
@@ -190,7 +190,7 @@ GroupAdd,Ten,ahk_exe Hex.exe
 }
 
 ; Custom keybindings for moba
-#IfWinActive ahk_exe MobaXterm.exe
+#IfWinActive ahk_exe MobaXterm_Personal_8.6.exe
 {
     ^!1::
 	Loop, 10 {
