@@ -192,6 +192,9 @@ GroupAdd,Ten,ahk_exe Hex.exe
 ; Custom keybindings for moba
 #IfWinActive ahk_exe MobaXterm_Personal_8.6.exe
 {
+    f3::
+        Control, hide , , TsPanel9, ahk_exe MobaXterm_Personal_8.6.exe
+        return
     ^!1::
 	Loop, 10 {
 	        SendInput {Control Down}{Alt Down}{Left}{Alt Up}{Control Up}
