@@ -79,17 +79,11 @@ GroupAdd,Ten,ahk_exe Hex.exe
     WinActivateBottom, ahk_class %class%
     return
 #t:: ; Terminal
-    Run Cmder
+    Run Powershell
     return
-#s:: ; Terminal
-    IfWinExist, Scratch.md
-    {
-        WinActivate
-    }
-    else
-    {
-        Run C:\Users\Robert\Google Drive\Scratch.md
-    }
+F3::
+#s::
+    Run C:\Users\Robert\Projects\FFFWW\FFFWW\bin\Release\FFFWW.exe
     return
 #!o:: ; always on top
     WinSet, AlwaysOnTop, toggle, A
