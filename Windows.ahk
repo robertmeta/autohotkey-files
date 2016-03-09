@@ -57,7 +57,8 @@ GroupAdd,Six,ahk_exe krita.exe
 GroupAdd,Seven,ahk_class SpotifyMainWindow
 ; 8
 GroupAdd,Eight,ahk_exe postbox.exe
-GroupAdd,Eight,Inbox
+GroupAdd,Eight, Inbox
+GroupAdd,Eight, FastMail
 ; 9
 GroupAdd,Nine,ahk_class TV_CClientWindowClass
 GroupAdd,Nine,ahk_exe TeamViewer.exe
