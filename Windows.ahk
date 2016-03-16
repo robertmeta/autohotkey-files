@@ -20,58 +20,6 @@ SetBatchLines, -1   ; maximize script speed!
 SetWinDelay, -1 ; maximize script speed!
 Menu, Tray, Icon, shell32.dll, 44 ; Make icon the star
 
-
-; Groups for switching to, it is worth
-; noting that they are always switched
-; to in order, top to bottom
-; 1
-GroupAdd,One,ahk_class VirtualConsoleClass
-GroupAdd,One,ahk_class CabinetWClass
-GroupAdd,One,ahk_exe qbittorrent.exe
-GroupAdd,One,ahk_class ConsoleWindowClass
-; 2
-GroupAdd,Two,ahk_exe mumble.exe
-GroupAdd,Two, HexChat:
-GroupAdd,Two, freenode
-GroupAdd,Two, OFTC
-GroupAdd,Two,ahk_exe Gitter.exe
-GroupAdd,Two,ahk_exe slack.exe
-GroupAdd,Two,TweetDeck
-GroupAdd,Two,Hangouts
-; 3
-GroupAdd,Three,ahk_exe firefox.exe
-GroupAdd,Three,- Google Chrome,,,Trello
-; 4
-GroupAdd,Four,ahk_exe MobaXterm_Personal_8.6.exe
-GroupAdd,Four,ahk_exe PUTTY.exe
-GroupAdd,Four,ahk_class Vim,,,Scratch.md
-GroupAdd,Four,Microsoft Visual Studio
-; 5
-GroupAdd,Five,Trello
-GroupAdd,Five,ahk_exe Evernote.exe
-GroupAdd,Five,ahk_exe MySQLWorkbench.exe
-; 6
-GroupAdd,Six,ahk_exe PaintDotNet.exe
-GroupAdd,Six,ahk_exe krita.exe
-; 7
-GroupAdd,Seven,ahk_class SpotifyMainWindow
-; 8
-GroupAdd,Eight,ahk_exe postbox.exe
-GroupAdd,Eight, Inbox
-GroupAdd,Eight, FastMail
-; 9
-GroupAdd,Nine,ahk_class TV_CClientWindowClass
-GroupAdd,Nine,ahk_exe TeamViewer.exe
-; 10
-GroupAdd,Ten,ahk_class LOLPATCHER
-GroupAdd,Ten,ahk_exe LolClient.exe
-GroupAdd,Ten,ahk_exe Battle.net.exe
-GroupAdd,Ten,ahk_exe Steam.exe
-GroupAdd,Ten, Dungeon Crawl Stone Soup
-GroupAdd,Ten,ahk_exe HexPatch.exe
-GroupAdd,Ten,ahk_exe Hex.exe
-
-
 ; Act a bit like mac
 #Space::#r
 !`:: ; emulate the mac swap, bind to alt-` because of muscle memory
@@ -110,38 +58,6 @@ F3::
 #Left::Send   {Media_Prev}
 #Down::Send   {Media_Play_Pause}
 #Right::Send  {Media_Next}
-
-; "Desktops"
-!1::
-    GroupActivate, One, R
-    return
-!2::
-    GroupActivate, Two, R
-    return
-!3::
-    GroupActivate, Three, R
-    return
-!4::
-    GroupActivate, Four, R
-    return
-!5::
-    GroupActivate, Five, R
-    return
-!6::
-    GroupActivate, Six, R
-    return
-!7::
-    GroupActivate, Seven, R
-    return
-!8::
-    GroupActivate, Eight, R
-    return
-!9::
-    GroupActivate, Nine, R
-    return
-!0::
-    GroupActivate, Ten, R
-    return
 
 ; Custom keybindings for putty (with tmux)
 #IfWinActive ahk_class PuTTY
