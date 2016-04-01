@@ -30,27 +30,6 @@ Menu, Tray, Icon, shell32.dll, 44 ; Make icon the star
 #t:: ; Terminal
     Run Powershell
     return
-F3::
-#s::
-    Run C:\Users\Robert\Projects\FFFWW\FFFWW\bin\Release\FFFWW.exe
-    return
-#!o:: ; always on top
-    WinSet, AlwaysOnTop, toggle, A
-    return
-#!l:: ; left side of main desktop
-    WinMove, A,, 0, 0, 1280, 1600
-    return
-
-#e::
-    IfWinExist, ahk_class CabinetWClass
-    {
-        WinActivate
-    }
-    Else
-    {
-	Run "explorer"
-    }
-    return
 
 ; I never mean to hit shift-delete and this maps it to shift-insert for stupid keyboards
 +Del::+Ins
