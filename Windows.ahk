@@ -10,6 +10,7 @@
 #NoEnv  ; for performance and compatibility with future AutoHotkey releases.
 #MaxThreadsPerHotkey 4 ; this allow us to have loops and so forth
 #WinActivateForce ; avoid weird flashing taskbar buttons on switch
+#UseHook ; required to work with certain aggressive key-stealing apps
 ScriptName = Improved Windows Bindings ; obvious really
 Process, Priority,, H ; abovenormal (just slightly)
 DetectHiddenWindows, Off ; Don't need hidden windows at the moment
@@ -30,7 +31,6 @@ GroupAdd,One,ahk_class CabinetWClass
 GroupAdd,One,ahk_exe qbittorrent.exe
 GroupAdd,One,ahk_class ConsoleWindowClass
 ; 2
-GroupAdd,Two,ahk_exe mumble.exe
 GroupAdd,Two, HexChat:
 GroupAdd,Two, freenode
 GroupAdd,Two, OFTC
@@ -84,7 +84,7 @@ GroupAdd,Ten,ahk_exe Hex.exe
     return
 F3::
 #s::
-    Run C:\Users\Robert\Projects\FFFWW\FFFWW\bin\Release\FFFWW.exe
+    Run gvim "~\Google Drive\personal\scratchpad.md"
     return
 #!o:: ; always on top
     WinSet, AlwaysOnTop, toggle, A
@@ -112,158 +112,42 @@ F3::
 #Right::Send  {Media_Next}
 
 ; "Desktops"
-!1::
-    GroupActivate, One, R
-    return
-!2::
-    GroupActivate, Two, R
-    return
-!3::
-    GroupActivate, Three, R
-    return
-!4::
-    GroupActivate, Four, R
-    return
-!5::
-    GroupActivate, Five, R
-    return
-!6::
-    GroupActivate, Six, R
-    return
-!7::
-    GroupActivate, Seven, R
-    return
-!8::
-    GroupActivate, Eight, R
-    return
-!9::
-    GroupActivate, Nine, R
-    return
-!0::
-    GroupActivate, Ten, R
-    return
+;!1::
+;    GroupActivate, One, R
+;    return
+;!2::
+;    GroupActivate, Two, R
+;    return
+;!3::
+;    GroupActivate, Three, R
+;    return
+;!4::
+;    GroupActivate, Four, R
+;    return
+;!5::
+;    GroupActivate, Five, R
+;    return
+;!6::
+;    GroupActivate, Six, R
+;    return
+;!7::
+;    GroupActivate, Seven, R
+;    return
+;!8::
+;   GroupActivate, Eight, R
+;    return
+;!9::
+;    GroupActivate, Nine, R
+;    return
+;!0::
+;    GroupActivate, Ten, R
+;    return
+;!m::
+;    WinActivate, ahk_exe mumble.exe
 
 ; Custom keybindings for putty (with tmux)
 #IfWinActive ahk_class PuTTY
 {
-    ^1::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 1{Enter}
-        return
-    ^2::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 2{Enter}
-        return
-    ^3::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 3{Enter}
-        return
-    ^4::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 4{Enter}
-        return
-    ^5::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 5{Enter}
-        return
-    ^6::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 6{Enter}
-        return
-    ^7::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 7{Enter}
-        return
-    ^8::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 8{Enter}
-        return
-    ^9::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 9{Enter}
-        return
-    ^0::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 10{Enter}
-        return
-    !WheelDown::
-        SendInput {Control Down}{Space}{Control Up}n
-        return
-    !WheelUp::
-        SendInput {Control Down}{Space}{Control Up}p
-        return
-}
-
-; Custom keybindings for moba
-#IfWinActive ahk_exe MobaXterm_Personal_8.6.exe
-{
-    ^!1::
-	Loop, 10 {
-	        SendInput {Control Down}{Alt Down}{Left}{Alt Up}{Control Up}
-        }
-        return
-    ^!2::
-	Loop, 10 {
-	        SendInput {Control Down}{Alt Down}{Left}{Alt Up}{Control Up}
-        }
-	Loop, 1 {
-	        SendInput {Control Down}{Alt Down}{Right}{Alt Up}{Control Up}
-        }
-        return
-    ^!3::
-	Loop, 10 {
-	        SendInput {Control Down}{Alt Down}{Left}{Alt Up}{Control Up}
-        }
-	Loop, 2 {
-	        SendInput {Control Down}{Alt Down}{Right}{Alt Up}{Control Up}
-        }
-        return
-    ^!4::
-	Loop, 10 {
-	        SendInput {Control Down}{Alt Down}{Left}{Alt Up}{Control Up}
-        }
-	Loop, 3 {
-	        SendInput {Control Down}{Alt Down}{Right}{Alt Up}{Control Up}
-        }
-        return
-    ^!5::
-	Loop, 10 {
-	        SendInput {Control Down}{Alt Down}{Left}{Alt Up}{Control Up}
-        }
-	Loop, 4 {
-	        SendInput {Control Down}{Alt Down}{Right}{Alt Up}{Control Up}
-        }
-        return
-    ^!6::
-	Loop, 10 {
-	        SendInput {Control Down}{Alt Down}{Left}{Alt Up}{Control Up}
-        }
-	Loop, 5 {
-	        SendInput {Control Down}{Alt Down}{Right}{Alt Up}{Control Up}
-        }
-        return
-    ^!7::
-	Loop, 10 {
-	        SendInput {Control Down}{Alt Down}{Left}{Alt Up}{Control Up}
-        }
-	Loop, 6 {
-	        SendInput {Control Down}{Alt Down}{Right}{Alt Up}{Control Up}
-        }
-        return
-    ^!8::
-	Loop, 10 {
-	        SendInput {Control Down}{Alt Down}{Left}{Alt Up}{Control Up}
-        }
-	Loop, 7 {
-	        SendInput {Control Down}{Alt Down}{Right}{Alt Up}{Control Up}
-        }
-        return
-    ^!9::
-	Loop, 10 {
-	        SendInput {Control Down}{Alt Down}{Left}{Alt Up}{Control Up}
-        }
-	Loop, 8 {
-	        SendInput {Control Down}{Alt Down}{Right}{Alt Up}{Control Up}
-        }
-        return
-    ^!0::
-	Loop, 10 {
-	        SendInput {Control Down}{Alt Down}{Left}{Alt Up}{Control Up}
-        }
-	Loop, 9 {
-	        SendInput {Control Down}{Alt Down}{Right}{Alt Up}{Control Up}
-        }
-        return
     ^1::
         SendInput {Control Down}{Space}{Control Up}:select-window -t 1{Enter}
         return
