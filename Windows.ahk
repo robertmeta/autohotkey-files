@@ -71,7 +71,6 @@ GroupAdd,Ten, Dungeon Crawl Stone Soup
 GroupAdd,Ten,ahk_exe HexPatch.exe
 GroupAdd,Ten,ahk_exe Hex.exe
 
-
 ; Act a bit like mac
 #Space::#r
 !`:: ; emulate the mac swap, bind to alt-` because of muscle memory
@@ -82,15 +81,8 @@ GroupAdd,Ten,ahk_exe Hex.exe
 #t:: ; Terminal
     Run Powershell
     return
-F3::
 #s::
     Run gvim "~\Google Drive\personal\scratchpad.md"
-    return
-#!o:: ; always on top
-    WinSet, AlwaysOnTop, toggle, A
-    return
-#!l:: ; left side of main desktop
-    WinMove, A,, 0, 0, 1280, 1600
     return
 
 ; I never mean to hit shift-delete and this maps it to shift-insert for stupid keyboards
@@ -99,6 +91,9 @@ F3::
 #Left::Send   {Media_Prev}
 #Down::Send   {Media_Play_Pause}
 #Right::Send  {Media_Next}
+; Mouse4 replacement
+XButton2::RControl
+CapsLock::RControl
 
 ; "Desktops"
 ;!1::
