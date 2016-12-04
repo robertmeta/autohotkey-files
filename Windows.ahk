@@ -31,9 +31,11 @@ GroupAdd,One,ahk_class CabinetWClass
 GroupAdd,One,ahk_exe qbittorrent.exe
 GroupAdd,One,ahk_class ConsoleWindowClass
 ; 2
-GroupAdd,Two, HexChat:
-GroupAdd,Two, freenode
-GroupAdd,Two, OFTC
+GroupAdd,Two,HexChat:
+GroupAdd,Two,freenode
+GroupAdd,Two,irc.slack.com
+GroupAdd,Two,OFTC
+GroupAdd,Two,ahk_exe Discord.exe
 GroupAdd,Two,ahk_exe Gitter.exe
 GroupAdd,Two,ahk_exe slack.exe
 GroupAdd,Two,TweetDeck
@@ -55,6 +57,7 @@ GroupAdd,Six,ahk_exe PaintDotNet.exe
 GroupAdd,Six,ahk_exe krita.exe
 ; 7
 GroupAdd,Seven,ahk_class SpotifyMainWindow
+GroupAdd,Seven,Google Play Music
 ; 8
 GroupAdd,Eight,ahk_exe postbox.exe
 GroupAdd,Eight, Inbox
@@ -70,6 +73,7 @@ GroupAdd,Ten,ahk_exe Steam.exe
 GroupAdd,Ten, Dungeon Crawl Stone Soup
 GroupAdd,Ten,ahk_exe HexPatch.exe
 GroupAdd,Ten,ahk_exe Hex.exe
+GroupAdd,Ten,ahk_exe LeagueClientUx.exe
 
 ; Act a bit like mac
 #Space::#r
@@ -84,6 +88,17 @@ GroupAdd,Ten,ahk_exe Hex.exe
 #s::
     Run gvim "~\Google Drive\personal\scratchpad.md"
     return
+!e::
+#e::
+    IfWinExist, ahk_class CabinetWClass
+    {
+        WinActivate
+    }
+    Else
+    {
+	Run "explorer"
+    }
+    return
 
 ; I never mean to hit shift-delete and this maps it to shift-insert for stupid keyboards
 +Del::+Ins
@@ -96,38 +111,36 @@ XButton2::RControl
 CapsLock::RControl
 
 ; "Desktops"
-;!1::
-;    GroupActivate, One, R
-;    return
-;!2::
-;    GroupActivate, Two, R
-;    return
-;!3::
-;    GroupActivate, Three, R
-;    return
-;!4::
-;    GroupActivate, Four, R
-;    return
-;!5::
-;    GroupActivate, Five, R
-;    return
-;!6::
-;    GroupActivate, Six, R
-;    return
-;!7::
-;    GroupActivate, Seven, R
-;    return
-;!8::
-;   GroupActivate, Eight, R
-;    return
-;!9::
-;    GroupActivate, Nine, R
-;    return
-;!0::
-;    GroupActivate, Ten, R
-;    return
-;!m::
-;    WinActivate, ahk_exe mumble.exe
+!1::
+    GroupActivate, One, R
+    return
+!2::
+    GroupActivate, Two, R
+    return
+!3::
+    GroupActivate, Three, R
+    return
+!4::
+    GroupActivate, Four, R
+    return
+!5::
+    GroupActivate, Five, R
+    return
+!6::
+    GroupActivate, Six, R
+    return
+!7::
+    GroupActivate, Seven, R
+    return
+!8::
+   GroupActivate, Eight, R
+    return
+!9::
+    GroupActivate, Nine, R
+    return
+!0::
+    GroupActivate, Ten, R
+    return
 
 ; Custom keybindings for putty (with tmux)
 #IfWinActive ahk_class PuTTY
