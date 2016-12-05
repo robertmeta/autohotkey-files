@@ -34,6 +34,7 @@ GroupAdd,One,ahk_class ConsoleWindowClass
 GroupAdd,Two,HexChat:
 GroupAdd,Two,freenode
 GroupAdd,Two,irc.slack.com
+GroupAdd,Two,gitter
 GroupAdd,Two,OFTC
 GroupAdd,Two,ahk_exe Discord.exe
 GroupAdd,Two,ahk_exe Gitter.exe
