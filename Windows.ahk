@@ -29,6 +29,7 @@ Menu, Tray, Icon, shell32.dll, 44 ; Make icon the star
 GroupAdd,One,ahk_class VirtualConsoleClass
 GroupAdd,One,ahk_class CabinetWClass
 GroupAdd,One,ahk_exe qbittorrent.exe
+GroupAdd,One,ahk_exe WinSCP.exe
 GroupAdd,One,ahk_class ConsoleWindowClass
 ; 2
 GroupAdd,Two,HexChat:
@@ -44,9 +45,10 @@ GroupAdd,Two,Hangouts
 ; 3
 GroupAdd,Three,ahk_exe firefox.exe
 GroupAdd,Three,- Google Chrome,,,Trello
+GroupAdd,Three,torrents.robertmeta.com,,,WinSCP
 ; 4
 GroupAdd,Four,ahk_exe MobaXterm_Personal_8.6.exe
-GroupAdd,Four,ahk_exe PUTTY.exe
+GroupAdd,Four,ahk_exe PUTTY.exe,,,torrents.robertmeta.com
 GroupAdd,Four,ahk_class Vim,,,Scratch.md
 GroupAdd,Four,Microsoft Visual Studio
 ; 5
@@ -89,7 +91,6 @@ GroupAdd,Ten,ahk_exe LeagueClientUx.exe
 #s::
     Run gvim "~\Google Drive\personal\scratchpad.md"
     return
-!e::
 #e::
     IfWinExist, ahk_class CabinetWClass
     {
@@ -100,6 +101,25 @@ GroupAdd,Ten,ahk_exe LeagueClientUx.exe
 	Run "explorer"
     }
     return
+
+!a::
+WinGet, currentWindow, ID, A
+WinGet, ExStyle, ExStyle, ahk_id %currentWindow%
+if (ExStyle & 0x8)  ; 0x8 is WS_EX_TOPMOST.
+{
+	Winset, AlwaysOnTop, off, ahk_id %currentWindow%
+	SplashImage,, x0 y0 b fs12, OFF always on top.
+	Sleep, 1500
+	SplashImage, Off
+}
+else
+{
+	WinSet, AlwaysOnTop, on, ahk_id %currentWindow%
+	SplashImage,,x0 y0 b fs12, ON always on top.
+	Sleep, 1500
+	SplashImage, Off
+}
+return
 
 ; I never mean to hit shift-delete and this maps it to shift-insert for stupid keyboards
 +Del::+Ins
