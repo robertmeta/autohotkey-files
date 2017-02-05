@@ -129,7 +129,10 @@ return
 #Right::Send  {Media_Next}
 ; Mouse4 replacement
 XButton2::RControl
-CapsLock::RControl
+Capslock::Esc
+Esc::
+    SoundPlay, %A_WinDir%\Media\ding.wav
+    return
 
 ; "Desktops"
 !1::
