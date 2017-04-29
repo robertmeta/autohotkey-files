@@ -32,6 +32,8 @@ GroupAdd,One,ahk_exe qbittorrent.exe
 GroupAdd,One,ahk_exe WinSCP.exe
 GroupAdd,One,ahk_class ConsoleWindowClass
 ; 2
+GroupAdd,Two,ahk_exe slack.exe
+GroupAdd,Two,Hangouts
 GroupAdd,Two,HexChat:
 GroupAdd,Two,freenode
 GroupAdd,Two,irc.slack.com
@@ -39,9 +41,8 @@ GroupAdd,Two,gitter
 GroupAdd,Two,OFTC
 GroupAdd,Two,ahk_exe Discord.exe
 GroupAdd,Two,ahk_exe Gitter.exe
-GroupAdd,Two,ahk_exe slack.exe
+GroupAdd,Two,ahk_exe Mattermost.exe
 GroupAdd,Two,TweetDeck
-GroupAdd,Two,Hangouts
 ; 3
 GroupAdd,Three,ahk_exe firefox.exe
 GroupAdd,Three,- Google Chrome,,,Trello
