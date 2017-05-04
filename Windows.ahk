@@ -136,77 +136,77 @@ Esc::
     return
 
 ; "Desktops"
-!1::
-    GroupActivate, One, R
-    return
-!2::
-    GroupActivate, Two, R
-    return
-!3::
-    GroupActivate, Three, R
-    return
-!4::
-    GroupActivate, Four, R
-    return
-!5::
-    GroupActivate, Five, R
-    return
-!6::
-    GroupActivate, Six, R
-    return
-!7::
-    GroupActivate, Seven, R
-    return
-!8::
-   GroupActivate, Eight, R
-    return
-!9::
-    GroupActivate, Nine, R
-    return
-!0::
-    GroupActivate, Ten, R
-    return
+;!1::
+;    GroupActivate, One, R
+;    return
+;!2::
+;    GroupActivate, Two, R
+;    return
+;!3::
+;    GroupActivate, Three, R
+;    return
+;!4::
+;    GroupActivate, Four, R
+;    return
+;!5::
+;    GroupActivate, Five, R
+;    return
+;!6::
+;    GroupActivate, Six, R
+;    return
+;!7::
+;    GroupActivate, Seven, R
+;    return
+;!8::
+;   GroupActivate, Eight, R
+;    return
+;!9::
+;    GroupActivate, Nine, R
+;    return
+;!0::
+;    GroupActivate, Ten, R
+;    return
 
 ; Custom keybindings for putty (with tmux)
-#IfWinActive ahk_class PuTTY
-{
-    ^1::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 1{Enter}
-        return
-    ^2::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 2{Enter}
-        return
-    ^3::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 3{Enter}
-        return
-    ^4::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 4{Enter}
-        return
-    ^5::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 5{Enter}
-        return
-    ^6::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 6{Enter}
-        return
-    ^7::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 7{Enter}
-        return
-    ^8::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 8{Enter}
-        return
-    ^9::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 9{Enter}
-        return
-    ^0::
-        SendInput {Control Down}{Space}{Control Up}:select-window -t 10{Enter}
-        return
-    !WheelDown::
-        SendInput {Control Down}{Space}{Control Up}n
-        return
-    !WheelUp::
-        SendInput {Control Down}{Space}{Control Up}p
-        return
-}
+;#IfWinActive ahk_class PuTTY
+;{
+;    ^1::
+;        SendInput {Control Down}{Space}{Control Up}:select-window -t 1{Enter}
+;        return
+;    ^2::
+;        SendInput {Control Down}{Space}{Control Up}:select-window -t 2{Enter}
+;        return
+;    ^3::
+;        SendInput {Control Down}{Space}{Control Up}:select-window -t 3{Enter}
+;        return
+;    ^4::
+;        SendInput {Control Down}{Space}{Control Up}:select-window -t 4{Enter}
+;        return
+;    ^5::
+;        SendInput {Control Down}{Space}{Control Up}:select-window -t 5{Enter}
+;        return
+;    ^6::
+;        SendInput {Control Down}{Space}{Control Up}:select-window -t 6{Enter}
+;        return
+;    ^7::
+;        SendInput {Control Down}{Space}{Control Up}:select-window -t 7{Enter}
+;        return
+;    ^8::
+;        SendInput {Control Down}{Space}{Control Up}:select-window -t 8{Enter}
+;        return
+;    ^9::
+;        SendInput {Control Down}{Space}{Control Up}:select-window -t 9{Enter}
+;        return
+;    ^0::
+;        SendInput {Control Down}{Space}{Control Up}:select-window -t 10{Enter}
+;        return
+;    !WheelDown::
+;        SendInput {Control Down}{Space}{Control Up}n
+;        return
+;    !WheelUp::
+;        SendInput {Control Down}{Space}{Control Up}p
+;        return
+;}
 
 ; Support functions
 ToggleActive(Win)
